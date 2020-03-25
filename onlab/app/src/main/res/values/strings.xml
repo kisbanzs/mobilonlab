@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Vizivandor</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">VÍZIVÁNDOR</string>
+    <string name="nav_header_subtitle">zsofi.kisban@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Főoldal</string>
+    <string name="menu_tura">Túrák</string>
+    <string name="menu_slideshow">Térkép</string>
+    <string name="menu_tools">Útravaló</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Jelentkezés</string>
+
+    <string name="gym_search">Gym</string>
+    <string name="name">Név</string>
+    <string name="db">Létszám</string>
+    <string name="category">Válassz túra útvonalat</string>
+    <string name="egyeb">Megjegyzés</string>
+</resources>
