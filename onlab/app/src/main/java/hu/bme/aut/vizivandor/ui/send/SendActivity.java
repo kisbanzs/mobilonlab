@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.send;
+/*package hu.bme.aut.vizivandor.ui.send;
 
 import android.os.Bundle;
 import android.view.View;
@@ -29,3 +29,4 @@ public class SendActivity extends AppCompatActivity implements NumberPicker.OnVa
         newFragment.show(getSupportFragmentManager(), "time picker");
     }
 }
+*/

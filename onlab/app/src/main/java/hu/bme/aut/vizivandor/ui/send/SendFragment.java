@@ -17,9 +17,9 @@ import androidx.lifecycle.ViewModelProviders;
 
 import hu.bme.aut.vizivandor.R;
 
-public class SendFragment extends AppCompatActivity {
+public class SendFragment extends Fragment {
 
-   /* private SendViewModel sendViewModel;
+    private SendViewModel sendViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,9 +34,11 @@ public class SendFragment extends AppCompatActivity {
             }
         });
         return root;
-    }*/
 
-    private NumberPicker picker1;
+
+    }
+
+   /* private NumberPicker picker1;
     private String[] pickerVals;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,8 @@ public class SendFragment extends AppCompatActivity {
         picker1 = findViewById(R.id.numberpicker_main_picker);
         picker1.setMaxValue(500);
         picker1.setMinValue(1);
-       // pickerVals  = new String[] {"dog", "cat", "lizard", "turtle", "axolotl"};
-       // picker1.setDisplayedValues(pickerVals);
+        pickerVals  = new String[] {"dog", "cat", "lizard", "turtle", "axolotl"};
+        picker1.setDisplayedValues(pickerVals);
 
         picker1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
@@ -56,5 +58,5 @@ public class SendFragment extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 }

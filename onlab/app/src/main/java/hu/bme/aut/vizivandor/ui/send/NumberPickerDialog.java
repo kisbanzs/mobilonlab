@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.send;
+/*package hu.bme.aut.vizivandor.ui.send;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -51,3 +51,4 @@ public class NumberPickerDialog extends DialogFragment {
         this.valueChangeListener = valueChangeListener;
     }
 }
+*/
