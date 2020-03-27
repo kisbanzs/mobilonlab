@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -69,6 +70,13 @@ public class SendFragment extends Fragment {
             });
         }
 
+        String [] values =
+                {"A Felső-Tisza","Tokaj és a Bodrogzug","Dunakanyar túra","A Szigetköz szépségei","Vízivándor tábor az Alsó-Dunán","Vízivándor túra a Körösökön","Vízivándor tábor a Tisza-tavon"};
+        Spinner spinner = (Spinner) root.findViewById(R.id.turak);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
         //eTo = (EditText)findViewById(R.id.txtTo);
         //eSubject = (EditText)findViewById(R.id.txtSub);
         eNev = (EditText)root.findViewById(R.id.text_send);
@@ -76,6 +84,10 @@ public class SendFragment extends Fragment {
         eTurahely = (Spinner)root.findViewById(R.id.turak);
         eMsg = (EditText)root.findViewById(R.id.txtMsg);
         btn = (ImageButton)root.findViewById(R.id.btnSend);
+
+        if( eNev.getText().toString().length() == 0 )
+            eNev.setError( "Kérem adja meg a nevét" );
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,9 +95,10 @@ public class SendFragment extends Fragment {
                 //it.putExtra(Intent.EXTRA_EMAIL, new String[]{eTo.getText().toString()});
                 //it.putExtra(Intent.EXTRA_SUBJECT,eSubject.getText().toString());
                 it.putExtra(Intent.EXTRA_EMAIL, new String[]{"zsofi.kisban@gmail.com"});
-                it.putExtra(Intent.EXTRA_SUBJECT, "Vizivandor jelentkezes");
-                it.putExtra(Intent.EXTRA_TEXT,"Vizivándor táborra jelentkezem "
+                it.putExtra(Intent.EXTRA_SUBJECT, "Vízivándor jelentkezés");
+                it.putExtra(Intent.EXTRA_TEXT,"Vízivándor táborra jelentkezem "
                         + eLetszam.getValue() + "db fővel \n\n"
+                        + String.valueOf(eTurahely.getSelectedItem()) + " túrahelyre. \n"
                         + "Egyéb megjegyzésem: " + eMsg.getText() + "\n\n"
                         + "Üdvözlettel: \n" + eNev.getText());
                 it.setType("message/rfc822");
