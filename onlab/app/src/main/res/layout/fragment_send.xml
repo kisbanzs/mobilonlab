@@ -8,6 +8,7 @@
     android:padding="24dip"
     tools:context="hu.bme.aut.vizivandor.ui.send.SendFragment">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
         android:text="@string/category"/>
 
     <Spinner
-        android:id="@+id/ShoppingItemCategorySpinner"
+        android:id="@+id/turak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -52,7 +53,7 @@
         android:text="@string/egyeb"/>
 
     <EditText
-        android:id="@+id/ShoppingItemEstimatedPriceEditText"
+        android:id="@+id/txtMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -69,7 +70,7 @@
             android:layout_gravity="center_vertical" />
 
         <ImageButton
-            android:id="@+id/jelentkezem_gomb"
+            android:id="@+id/btnSend"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -78,6 +79,5 @@
             android:src="@drawable/jelentkezes" />
     </LinearLayout>
 
-
-
+    
 </LinearLayout>
