@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import hu.bme.aut.vizivandor.R;
 
-public class GalleryFragment extends Fragment {
+public class TuraFragment extends Fragment {
 
     private TuraViewModel turaViewModel;
 
@@ -22,14 +22,14 @@ public class GalleryFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         turaViewModel =
                 ViewModelProviders.of(this).get(TuraViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
+        View root = inflater.inflate(R.layout.fragment_tura, container, false);
+        /*final TextView textView = root.findViewById(R.id.text_gallery);
         turaViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
         return root;
     }
 }

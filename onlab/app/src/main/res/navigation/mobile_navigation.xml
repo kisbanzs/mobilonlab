@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="hu.bme.aut.vizivandor.ui.tura.GalleryFragment"
+        android:name="hu.bme.aut.vizivandor.ui.tura.TuraFragment"
         android:label="@string/menu_tura"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_tura" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -28,12 +28,6 @@
         android:name="hu.bme.aut.vizivandor.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="hu.bme.aut.vizivandor.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
