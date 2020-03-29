@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context="hu.bme.aut.vizivandor.ui.tura.TuraFragment">
 
     <ScrollView
@@ -17,173 +16,180 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnFelsoTisza"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnFelsoTisza"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="A Felső-Tisza"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="A Felső-Tisza"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnTokajBodrog"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnTokajBodrog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura2" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Tokaj és a Bodrogzug"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Tokaj és a Bodrogzug"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnDunakanyar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnDunakanyar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura3" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dunakanyar túra"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Dunakanyar túra"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnSzigetkoz"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnSzigetkoz"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura4" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="A Szigetköz szépségei"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="A Szigetköz szépségei"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnAlsoDuna"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnAlsoDuna"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura5" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Vízivándo tábor az Alsó-Dunán"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Vízivándo tábor az Alsó-Dunán"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnKoros"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnKoros"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura6" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Vízivándor túra a Körösökön"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Vízivándor túra a Körösökön"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/btnTiszaTo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vizitura" />
+                <ImageButton
+                    android:id="@+id/btnTiszaTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vizitura7" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Vízivándor tábor a Tisza-tavon"
-            android:textColor="#FFF"
-            android:textSize="36sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Vízivándor tábor a Tisza-tavon"
+                    android:textColor="#FFF"
+                    android:textSize="36sp" />
 
-    </FrameLayout>
+            </FrameLayout>
 
         </LinearLayout>
     </ScrollView>
