@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.tools;
+package hu.bme.aut.vizivandor.ui.utravalo;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
