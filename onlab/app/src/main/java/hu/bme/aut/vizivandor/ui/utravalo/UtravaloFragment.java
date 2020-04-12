@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -94,18 +95,20 @@ public class UtravaloFragment extends Fragment {
 
             }
         });
-       /* if(){
-            torles.setOnClickListener(new View.OnClickListener(){
-                @RequiresApi(api = Build.VERSION_CODES.N)
-                @Override
-                public void onClick(View view) {
+/*
+        vanvagynincs.setOnClickListener(new View.OnClickListener() {
 
-                    UtravaloListaItem listaElem = getUtravaloListaItem();
-
-                    deleteUtravaloListaElem(listaElem);
+            @Override
+            public void onClick(View v) {
+                //is chkIos checked?
+                if (((CheckBox) v).isChecked()) {
+                    Snackbar.make(v, "klikkelj", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return;
                 }
-            });
-        }*/
+
+            }
+        });*/
 
         recyclerView = (RecyclerView) view.findViewById(R.id.lista_elemek);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());

@@ -9,9 +9,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +56,22 @@ public class UtravaloAdapter
                 removeUtravalo(item.id);
             }
         });
-        holder.vanvagynincs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        holder.vanvagynincs.setOnClickListener(new View.OnClickListener() {
+            boolean isChecked;
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onClick(View v) {
+                if (((CheckBox) v).isChecked()) {
+                    isChecked = true;
+                }
+                else {
+                    isChecked = false;
+                }
                 item.checkbox = isChecked;
                 updateUtravalo(position, item);
             }
-        }
-        );
+        });
+
         holder.item = item;
     }
 
