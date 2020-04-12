@@ -1,23 +1,25 @@
 package hu.bme.aut.vizivandor.ui.utravalo;
 
-import android.content.Context;
+
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
@@ -37,24 +39,42 @@ public class UtravaloFragment extends Fragment {
     private EditText ujlistaelem;
     private Button listahozzadas;
     private CheckBox vanvagynincs;
+    private Button torles;
 
     //adatbázis
     private RecyclerView recyclerView;
     private UtravaloAdapter utravaloadapter;
     private UtravaloListaDatabase database;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        database = Room.databaseBuilder(
+                getActivity().getApplicationContext(),
+                UtravaloListaDatabase.class,
+                "utravalo-list"
+        ).build();
+    }
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_utravalo, container, false);
+        return root;
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        listaelemek = root.findViewById(R.id.lista_neve);
-        ujlistaelem = root.findViewById(R.id.aktualis_elem);
-        listahozzadas = root.findViewById(R.id.listasave_button);
-        vanvagynincs = root.findViewById(R.id.checkbox_lista);
-
+        listaelemek = view.findViewById(R.id.lista_neve);
+        ujlistaelem = view.findViewById(R.id.aktualis_elem);
+        listahozzadas = view.findViewById(R.id.listasave_button);
+        vanvagynincs = view.findViewById(R.id.checkbox_lista);
+        torles = view.findViewById(R.id.lista_delete_button);
 
         listahozzadas.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -67,38 +87,39 @@ public class UtravaloFragment extends Fragment {
                     return;
                 }
 
-                UtravaloListaItem lista = getUtravaloListaItem();
+                UtravaloListaItem listaElem = getUtravaloListaItem();
 
-                createUtralaoLista(lista);
+                createUtravaloListaElem(listaElem);
                 ujlistaelem.setText("");
 
             }
         });
+       /* if(){
+            torles.setOnClickListener(new View.OnClickListener(){
+                @RequiresApi(api = Build.VERSION_CODES.N)
+                @Override
+                public void onClick(View view) {
 
-        /*final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
+                    UtravaloListaItem listaElem = getUtravaloListaItem();
 
+                    deleteUtravaloListaElem(listaElem);
+                }
+            });
+        }*/
 
+        recyclerView = (RecyclerView) view.findViewById(R.id.lista_elemek);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
 
-        database = Room.databaseBuilder(
-                getActivity().getApplicationContext(),
-                UtravaloListaDatabase.class,
-                "utravalo-list"
-        ).build();
+        utravaloadapter = new UtravaloAdapter(database);
+        recyclerView.setAdapter(utravaloadapter);
 
+        loadItemsInBackground();
 
-        return root;
     }
 
     private UtravaloListaItem getUtravaloListaItem() {
         UtravaloListaItem utravalolistaelem = new UtravaloListaItem();
-
-
         utravalolistaelem.targynev = ujlistaelem.getText().toString();
         return utravalolistaelem;
     }
@@ -112,47 +133,21 @@ public class UtravaloFragment extends Fragment {
                 return database.utravaloListaItemDao().getAll();
             }
 
-            /*@Override
-            protected void onPostExecute(List<UtravaloListaItem> shoppingItems) {
-                utravaloadapter.update(shoppingItems);
-            }*/
+            @Override
+            protected void onPostExecute(List<UtravaloListaItem> utravalok) {
+                utravaloadapter.setUtravaloLista(utravalok);
+            }
         }.execute();
     }
 
-   /* @Override
-    public void onItemChanged(final UtravaloListaItem item) {
-        new AsyncTask<Void, Void, Boolean>() {
+    public void createUtravaloListaElem(final UtravaloListaItem newItem) {
+        utravaloadapter.addUtravalo(newItem);
+    }
 
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                database.utravaloListaItemDao().update(item);
-                return true;
-            }
-
-            @Override
-            protected void onPostExecute(Boolean isSuccessful) {
-                Log.d("MainActivity", "ShoppingItem update was successful");
-            }
-        }.execute();
+   /* public void deleteUtravaloListaElem(final UtravaloListaItem removeItem) {
+        int index = removeItem.id;
+        utravaloadapter.removeUtravalo(index);
     }*/
-
-    public void createUtralaoLista(final UtravaloListaItem newItem) {
-        new AsyncTask<Void, Void, UtravaloListaItem>() {
-
-            @Override
-            protected UtravaloListaItem doInBackground(Void... voids) {
-                newItem.id = database.utravaloListaItemDao().insert(newItem);
-                return newItem;
-            }
-
-            /*@Override
-            protected void onPostExecute(UtravaloListaItem shoppingItem) {
-                eventsAdapter.addItem(shoppingItem);
-            }*/
-        }.execute();
-        }
-
-
 
 
 }

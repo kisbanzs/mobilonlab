@@ -1,15 +1,16 @@
 package hu.bme.aut.vizivandor.adapter;
 
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -24,14 +25,12 @@ import hu.bme.aut.vizivandor.ui.utravalo.ToolsViewModel;
 public class UtravaloAdapter
         extends RecyclerView.Adapter<UtravaloAdapter.UtravaloViewHolder> {
 
-    private final List<UtravaloListaItem> items;
+    private List<UtravaloListaItem> utravaloLista;
     private UtravaloListaDatabase database;
-    private UtravaloClickListener listener;
 
-    public UtravaloAdapter(UtravaloClickListener listener, UtravaloListaDatabase database) {
-        this.listener = listener;
+    public UtravaloAdapter(UtravaloListaDatabase database) {
         this.database = database;
-        items = new ArrayList<>();
+        this.utravaloLista = new ArrayList<UtravaloListaItem>();
     }
 
 
@@ -45,50 +44,133 @@ public class UtravaloAdapter
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UtravaloViewHolder holder, int position) {
-        final UtravaloListaItem item = items.get(position);
-        holder.ujlistaelem.setText(item.targynev);
-        /*holder.removeButton.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull UtravaloViewHolder holder, final int position) {
+        final UtravaloListaItem item = utravaloLista.get(position);
+        holder.listaelem.setText(item.targynev);
+        holder.listatorles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                deleteRaceEventsItem(item.id);
-
+                removeUtravalo(item.id);
             }
-        });*/
+        });
+        holder.vanvagynincs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                item.checkbox = isChecked;
+                updateUtravalo(position, item);
+            }
+        }
+        );
         holder.item = item;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return utravaloLista.size();
     }
 
+    public void setUtravaloLista(List<UtravaloListaItem> utravalok) {
+        this.utravaloLista = utravalok;
+        notifyDataSetChanged();
+    }
 
     public interface UtravaloClickListener {
         void onItemChanged(UtravaloListaItem item);
     }
 
 
+    public void addUtravalo(final UtravaloListaItem utravalo) {
+        new AsyncTask<Void, Void, UtravaloListaItem>() {
+
+            @Override
+            protected UtravaloListaItem doInBackground(Void... voids) {
+                utravalo.id = database.utravaloListaItemDao().insert(utravalo);
+                return utravalo;
+            }
+
+            @Override
+            protected void onPostExecute(UtravaloListaItem utravalo) {
+                utravaloLista.add(0, utravalo);
+                notifyItemInserted(0);
+            }
+        }.execute();
+    }
+
+    public void updateUtravalo(final int index, final UtravaloListaItem utravalo) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                database.utravaloListaItemDao().update(utravalo);
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean isSuccessful) {
+                utravaloLista.set(index, utravalo);
+                notifyItemChanged(index);
+            }
+        }.execute();
+    }
+
+    public void removeUtravalo(final long id) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                UtravaloListaItem item = database.utravaloListaItemDao().loadById(id);
+                if(item != null){
+                    database.utravaloListaItemDao().deleteItem(item);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean isSuccessful) {
+                deleteItem(id);
+            }
+        }.execute();
+
+    }
+
+
+    public void deleteItem(long id){
+        int index = 0;
+        UtravaloListaItem itemToRemove = null;
+        for(UtravaloListaItem item : utravaloLista) {
+            if (item.id == id){
+                itemToRemove = item;
+                break;
+            }
+            index++;
+        }
+
+        if(itemToRemove != null) {
+            utravaloLista.remove(itemToRemove);
+            notifyItemRemoved(index);
+        }
+    }
+
+    public UtravaloListaItem getUtravalo(int index) {
+        return utravaloLista.get(index);
+    }
+
     class UtravaloViewHolder extends RecyclerView.ViewHolder {
 
         UtravaloListaItem item;
 
-        private ToolsViewModel toolsViewModel;
-        private TextView listaelemek;
-        private EditText ujlistaelem;
-        private Button listahozzadas;
+        //private ToolsViewModel toolsViewModel;
+        private TextView listaelem;
+        private Button listatorles;
         private CheckBox vanvagynincs;
 
         UtravaloViewHolder(View itemView) {
             super(itemView);
-
-            listaelemek = itemView.findViewById(R.id.lista_neve);
-            ujlistaelem = itemView.findViewById(R.id.aktualis_elem);
-            listahozzadas = itemView.findViewById(R.id.listasave_button);
+            listaelem = itemView.findViewById(R.id.lista_neve);
+            listatorles = itemView.findViewById(R.id.lista_delete_button);
             vanvagynincs = itemView.findViewById(R.id.checkbox_lista);
-
-
         }
 
 

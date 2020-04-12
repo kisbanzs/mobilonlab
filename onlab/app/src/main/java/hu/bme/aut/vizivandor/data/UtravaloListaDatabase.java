@@ -7,7 +7,8 @@ import androidx.room.TypeConverters;
 
 @Database(
         entities = {UtravaloListaItem.class},
-        version = 1
+        version = 1,
+        exportSchema = false
 )
 //@TypeConverters(value = {UtravaloListaItem.Category.class})
 public abstract class UtravaloListaDatabase extends RoomDatabase {
