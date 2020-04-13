@@ -18,11 +18,37 @@
         android:textColor="#090000"
         android:textSize="36sp"/>
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/vizitura"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/vizitura"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/info_hossz"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Hossz" />
+
+            <TextView
+                android:id="@+id/info_idotartam"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Idotartam" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -33,10 +59,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/expansionpanel"/>
-            <include layout="@layout/expansionpanel"/>
-            <include layout="@layout/expansionpanel"/>
-            <include layout="@layout/expansionpanel"/>
+            <include layout="@layout/expansionpanel" android:id="@+id/tura_leirasa"/>
+            <include layout="@layout/expansionpanel" android:id="@+id/reszletezes"/>
+            <include layout="@layout/expansionpanel" android:id="@+id/megkozelites"/>
+            <include layout="@layout/expansionpanel" android:id="@+id/egyeb_informaciok"/>
         </LinearLayout>
 
     </ScrollView>
