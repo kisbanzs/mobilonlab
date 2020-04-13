@@ -7,73 +7,39 @@
     android:layout_height="match_parent"
     tools:context="hu.bme.aut.vizivandor.ui.tura.ListTuraActivity">
 
-        <com.github.florent37.expansionpanel.ExpansionHeader
-            android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tura_neve"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAllCaps="true"
+        android:text="Trip name"
+        android:textStyle="italic"
+        android:textColor="#090000"
+        android:textSize="36sp"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/vizitura"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            app:expansion_headerIndicator="@id/headerIndicator"
-            app:expansion_layout="@id/expansionLayout"
-            app:expansion_toggleOnClick="true">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <!-- HEADER -->
+            <include layout="@layout/expansionpanel"/>
+            <include layout="@layout/expansionpanel"/>
+            <include layout="@layout/expansionpanel"/>
+            <include layout="@layout/expansionpanel"/>
+        </LinearLayout>
 
-            <RelativeLayout
-                android:background="@android:color/white"
-                android:layout_height="48dp"
-                android:layout_width="match_parent"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Trip name"
-                    android:textColor="#3E3E3E" />
-
-                <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
-                    android:layout_width="wrap_content"
-                    android:text="Carribean cruise"
-                    android:textColor="#AAA" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:adjustViewBounds="true"
-                    android:id="@+id/headerIndicator"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_width="wrap_content"
-                    app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
-
-            </RelativeLayout>
-            <!-- HEADER INDICATOR -->
+    </ScrollView>
 
 
-        </com.github.florent37.expansionpanel.ExpansionHeader>
-
-        <com.github.florent37.expansionpanel.ExpansionLayout
-            android:id="@+id/expansionLayout"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <!-- CONTENT -->
-            <LinearLayout
-                android:id="@+id/container"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:background="#EEE"
-                    android:gravity="center"
-                    android:layout_height="100dp"
-                    android:layout_width="match_parent"
-                    android:text="content" />
-
-            </LinearLayout>
-
-        </com.github.florent37.expansionpanel.ExpansionLayout>
     </LinearLayout>

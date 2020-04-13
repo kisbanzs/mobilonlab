@@ -17,11 +17,20 @@ public class TuraFragment extends Fragment {
 
     private TuraViewModel turaViewModel;
 
+    public static final int TYPE_FELSOTISZA = 1;
+    public static final int TYPE_TOKAJ = 2;
+    public static final int TYPE_DUNAKANYAR = 3;
+    public static final int TYPE_SZIGETKOZ = 4;
+    public static final int TYPE_ALSODUNA = 5;
+    public static final int TYPE_KOROS = 6;
+    public static final int TYPE_TISZATO = 7;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         turaViewModel =
                 ViewModelProviders.of(this).get(TuraViewModel.class);
         View root = inflater.inflate(R.layout.fragment_tura, container, false);
+
 
 
 
@@ -39,6 +48,61 @@ public class TuraFragment extends Fragment {
             @Override
             public void onClick(final View view) {
                 Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_FELSOTISZA);
+                startActivity(intent);
+            }
+        });
+
+        TOKAJ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_TOKAJ);
+                startActivity(intent);
+            }
+        });
+
+        DUNAKANYAR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_DUNAKANYAR);
+                startActivity(intent);
+            }
+        });
+
+        SZIGETKOZ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_SZIGETKOZ);
+                startActivity(intent);
+            }
+        });
+
+        ALSODUNA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_ALSODUNA);
+                startActivity(intent);
+            }
+        });
+
+        KOROS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_KOROS);
+                startActivity(intent);
+            }
+        });
+
+        TISZATO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                Intent intent = new Intent(getActivity(), ListTuraActivity.class);
+                intent.putExtra(ListTuraActivity.KEY_TURA_TYPE, TYPE_TISZATO);
                 startActivity(intent);
             }
         });
