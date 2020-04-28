@@ -7,48 +7,25 @@
     android:layout_height="match_parent"
     tools:context="hu.bme.aut.vizivandor.ui.tura.ListTuraActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="273dp"
+        android:src="@drawable/vizitura6"
+        />
+
     <TextView
         android:id="@+id/tura_neve"
-        android:layout_centerVertical="true"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textAllCaps="true"
-        android:text="Trip name"
-        android:textStyle="italic"
-        android:textColor="#090000"
-        android:textSize="36sp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_centerVertical="true"
+        android:text="Trip name"
+        android:textAllCaps="true"
+        android:textColor="#090000"
+        android:textSize="36sp"
+        android:textStyle="italic"
+        app:fontFamily="casual" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/vizitura"
-            />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/info_hossz"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:text="Hossz" />
-
-            <TextView
-                android:id="@+id/info_idotartam"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:text="Idotartam" />
-        </LinearLayout>
-
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -68,4 +45,4 @@
     </ScrollView>
 
 
-    </LinearLayout>
+</LinearLayout>

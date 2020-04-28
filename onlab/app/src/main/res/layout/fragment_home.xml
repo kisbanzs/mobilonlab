@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="#29000000"
-    tools:context="hu.bme.aut.vizivandor.ui.home.HomeFragment">
-
-    <include layout="@layout/video_background"
-        />
+    tools:context="hu.bme.aut.vizivandor.ui.home.HomeFragment"
+    android:background="@drawable/side_nav_bar">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:background="#FF2D2D2D"
-            android:text="LOG IN"
-            android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/signUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:background="#2196F3"
-            android:text="SIGN IN"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
+        android:fontFamily="casual"
+        android:text="Legyél TE is Vízivándor!"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#2149a6"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:fontFamily="casual"
+        android:gravity="bottom"
+        android:text="Fedezd fel a természetet olyan oldaláról, ami átlagon felüli! Csatlakozz azokhoz, akik már megtapasztalták, a különleges vízi világ nyújtotta kalandokat."
+        android:textAlignment="center"
+        android:textColor="#2149a6"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+
+
+
 </RelativeLayout>

@@ -24,8 +24,8 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        /*homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);*/
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         /*final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
             }
         });*/
 
-        mVideoView = (VideoView) root.findViewById(R.id.mVideoView);
+        /*mVideoView = (VideoView) root.findViewById(R.id.mVideoView);
 
         Uri uri = Uri.parse("android.resource://"+ this.getContext().getPackageName() +"/"+R.raw.vizivandor_video);
         mVideoView.setVideoURI(uri);
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setLooping(true);
             }
-        });
+        });*/
 
         return root;
     }

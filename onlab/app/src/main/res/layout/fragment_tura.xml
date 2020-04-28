@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="hu.bme.aut.vizivandor.ui.tura.TuraFragment">
 
@@ -35,7 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="A Felső-Tisza"
+                    android:text="A Felsó-Tisza"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -61,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Tokaj és a Bodrogzug"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -86,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Dunakanyar túra"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -111,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="A Szigetköz szépségei"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -136,6 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Vízivándo tábor az Alsó-Dunán"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -161,6 +167,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Vízivándor túra a Körösökön"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
@@ -186,6 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Vízivándor tábor a Tisza-tavon"
+                    app:fontFamily="casual"
                     android:textColor="#FFF"
                     android:textSize="36sp" />
 
