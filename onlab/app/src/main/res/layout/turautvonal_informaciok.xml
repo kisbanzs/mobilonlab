@@ -18,7 +18,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="273dp"
+            android:layout_height="275dp"
             android:src="@drawable/vizitura6"
             />
 
@@ -30,7 +30,7 @@
             android:text="Trip name"
             android:textAllCaps="true"
             android:textColor="#090000"
-            android:textSize="36sp"
+            android:textSize="28sp"
             android:textStyle="italic"
             app:fontFamily="casual" />
 

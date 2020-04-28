@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Trip name"
+                app:fontFamily="casual"
                 android:textColor="#3E3E3E" />
 
 
@@ -66,7 +67,8 @@
                 android:gravity="center"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="content" />
+                android:text="content"
+                app:fontFamily="casual"/>
 
         </LinearLayout>
 
