@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="4dp">
 
@@ -24,7 +25,8 @@
                 android:id="@+id/lista_neve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="itt lesz a lista eleme" />
+                tools:text="itt lesz a lista eleme"
+                app:fontFamily="casual"/>
         </LinearLayout>
 
 

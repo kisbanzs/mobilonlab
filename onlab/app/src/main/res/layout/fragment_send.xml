@@ -12,7 +12,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name"/>
+        android:text="@string/name"
+        app:fontFamily="casual"/>
 
     <EditText
         android:id="@+id/text_send"
@@ -23,7 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="@string/category"/>
+        android:text="@string/category"
+        app:fontFamily="casual"/>
 
     <Spinner
         android:id="@+id/turak"
@@ -35,7 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="@string/db"/>
+        android:text="@string/db"
+        app:fontFamily="casual"/>
 
     <NumberPicker
         android:id="@+id/numberpicker_main_picker"
@@ -52,7 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dip"
-        android:text="@string/egyeb"/>
+        android:text="@string/egyeb"
+        app:fontFamily="casual"/>
 
     <EditText
         android:id="@+id/txtMsg"
@@ -68,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jelentkezem"
+            app:fontFamily="casual"
             android:id="@+id/jelentkezem"
             android:layout_gravity="center_vertical" />
 
