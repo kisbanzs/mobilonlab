@@ -15,7 +15,6 @@ import hu.bme.aut.vizivandor.R;
 
 public class TuraFragment extends Fragment {
 
-    private TuraViewModel turaViewModel;
 
     public static final int TYPE_FELSOTISZA = 1;
     public static final int TYPE_TOKAJ = 2;
@@ -27,8 +26,7 @@ public class TuraFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        turaViewModel =
-                ViewModelProviders.of(this).get(TuraViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_tura, container, false);
 
 

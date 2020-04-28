@@ -7,39 +7,37 @@
     android:layout_height="match_parent"
     tools:context="hu.bme.aut.vizivandor.ui.tura.ListTuraActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="273dp"
-        android:src="@drawable/vizitura6"
-        />
-
-    <TextView
-        android:id="@+id/tura_neve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="Trip name"
-        android:textAllCaps="true"
-        android:textColor="#090000"
-        android:textSize="36sp"
-        android:textStyle="italic"
-        app:fontFamily="casual" />
-
-
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/expansionpanel" android:id="@+id/tura_leirasa"/>
-            <include layout="@layout/expansionpanel" android:id="@+id/reszletezes"/>
-            <include layout="@layout/expansionpanel" android:id="@+id/megkozelites"/>
-            <include layout="@layout/expansionpanel" android:id="@+id/egyeb_informaciok"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="273dp"
+            android:src="@drawable/vizitura6"
+            />
+
+        <TextView
+            android:id="@+id/tura_neve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Trip name"
+            android:textAllCaps="true"
+            android:textColor="#090000"
+            android:textSize="36sp"
+            android:textStyle="italic"
+            app:fontFamily="casual" />
+
+                <include layout="@layout/expansionpanel" android:id="@+id/tura_leirasa"/>
+                <include layout="@layout/expansionpanel" android:id="@+id/reszletezes"/>
+                <include layout="@layout/expansionpanel" android:id="@+id/megkozelites"/>
+                <include layout="@layout/expansionpanel" android:id="@+id/egyeb_informaciok"/>
         </LinearLayout>
 
     </ScrollView>

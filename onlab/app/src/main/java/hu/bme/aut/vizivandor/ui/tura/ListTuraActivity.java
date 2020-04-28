@@ -63,7 +63,7 @@ public class ListTuraActivity extends AppCompatActivity {
     private String getTuraNeve(int turaType) {
         switch (turaType) {
             case TuraFragment.TYPE_FELSOTISZA:
-                return "A Felső-Tisza";
+                return "A Felsó-Tisza";
             case TuraFragment.TYPE_TOKAJ:
                 return "Tokaj és a Bodrogzug";
             case TuraFragment.TYPE_DUNAKANYAR:
