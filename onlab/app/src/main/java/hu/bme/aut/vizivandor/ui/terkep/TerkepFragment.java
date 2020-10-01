@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.slideshow;
+package hu.bme.aut.vizivandor.ui.terkep;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,17 +16,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import hu.bme.aut.vizivandor.R;
 
-public class SlideshowFragment extends Fragment {
+public class TerkepFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private TerkepViewModel terkepViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        terkepViewModel =
+                ViewModelProviders.of(this).get(TerkepViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_terkep, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        terkepViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

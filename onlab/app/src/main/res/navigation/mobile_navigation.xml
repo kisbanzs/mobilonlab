@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="hu.bme.aut.vizivandor.ui.slideshow.SlideshowFragment"
+        android:name="hu.bme.aut.vizivandor.ui.terkep.TerkepFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_terkep" />
 
     <fragment
         android:id="@+id/nav_tools"

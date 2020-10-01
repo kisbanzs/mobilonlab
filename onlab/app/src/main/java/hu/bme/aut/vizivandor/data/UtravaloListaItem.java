@@ -18,3 +18,5 @@ public class UtravaloListaItem {
     public Boolean checkbox;
 
 }
+
+
