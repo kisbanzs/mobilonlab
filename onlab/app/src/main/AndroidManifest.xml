@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="hu.bme.aut.vizivandor.ui.tura.ListTuraActivity" />
+        <activity android:name="hu.bme.aut.vizivandor.ui.terkep.OsmdroidActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

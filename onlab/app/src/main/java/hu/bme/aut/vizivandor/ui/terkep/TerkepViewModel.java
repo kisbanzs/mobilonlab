@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.terkep;
+/*package hu.bme.aut.vizivandor.ui.terkep;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,4 +16,4 @@ public class TerkepViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
-}
+}*/
