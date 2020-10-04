@@ -20,6 +20,10 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+
 import org.osmdroid.config.Configuration;
 import org.osmdroid.events.MapListener;
 import org.osmdroid.events.ScrollEvent;
@@ -46,6 +50,7 @@ public class MapFragment extends Fragment implements LocationListener {
     View view;
 
     MapView map = null;
+    private GoogleMap gmap;
     private MapView osm;
     private MapController mc;
     private LocationManager locationManager;
@@ -99,6 +104,10 @@ public class MapFragment extends Fragment implements LocationListener {
 
         mc = (MapController) osm.getController();
         mc.setZoom(15);
+        //maximum mennyire lehet ránagyítani, és a legkisebb nézet pedig 1  világtérkép
+        osm.setMaxZoomLevel(30.0);
+        osm.setMinZoomLevel(2.5);
+        //osm.setPadding(5,5,5,5);
 
         //Lagymanyosi obol geo pontja
         GeoPoint center = new GeoPoint(47.462740,19.057963);
