@@ -34,6 +34,8 @@ import org.osmdroid.views.overlay.mylocation.DirectedLocationOverlay;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.util.ArrayList;
+
 import hu.bme.aut.vizivandor.R;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -101,8 +103,30 @@ public class MapFragment extends Fragment implements LocationListener {
         //Lagymanyosi obol geo pontja
         GeoPoint center = new GeoPoint(47.462740,19.057963);
         mc.animateTo(center);
-        addMarker(center);
+        //addMarker(center);
 
+
+        GeoPoint kezdo_allomas_1 = new GeoPoint(48.104927,22.829234);
+        GeoPoint kezdo_allomas_2 = new GeoPoint(48.137781,21.400946);
+        GeoPoint kezdo_allomas_3 = new GeoPoint(47.789443,18.731162);
+        GeoPoint kezdo_allomas_4 = new GeoPoint(47.940391,17.357821);
+        GeoPoint kezdo_allomas_5 = new GeoPoint(46.592602,18.860733);
+        GeoPoint kezdo_allomas_6 = new GeoPoint(46.759521,21.153568);
+        GeoPoint kezdo_allomas_7 = new GeoPoint(47.645895,20.660313);
+
+        ArrayList<GeoPoint> kezdo_allomasok = new ArrayList<GeoPoint>();
+        kezdo_allomasok.add(kezdo_allomas_1);
+        kezdo_allomasok.add(kezdo_allomas_2);
+        kezdo_allomasok.add(kezdo_allomas_3);
+        kezdo_allomasok.add(kezdo_allomas_4);
+        kezdo_allomasok.add(kezdo_allomas_5);
+        kezdo_allomasok.add(kezdo_allomas_6);
+        kezdo_allomasok.add(kezdo_allomas_7);
+
+        for(GeoPoint g: kezdo_allomasok){
+            //mc.animateTo(g);
+            addMarker(g);
+        }
 
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -136,11 +160,11 @@ public class MapFragment extends Fragment implements LocationListener {
         Marker marker = new Marker(osm);
         marker.setPosition(center);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        marker.setIcon(getResources().getDrawable(R.drawable.ic_menu_gallery));
-        osm.getOverlays().clear();
+        marker.setIcon(getResources().getDrawable(R.drawable.ic_kocsimegallo));
+        //osm.getOverlays().clear();
         osm.getOverlays().add(marker);
         osm.invalidate();
-        marker.setTitle("Sua Localização");
+        marker.setTitle("Kezdő állomás");
     }
 
 
