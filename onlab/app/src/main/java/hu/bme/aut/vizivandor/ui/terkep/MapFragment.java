@@ -106,7 +106,7 @@ public class MapFragment extends Fragment implements LocationListener {
         mc.setZoom(15);
         //maximum mennyire lehet ránagyítani, és a legkisebb nézet pedig 1  világtérkép
         osm.setMaxZoomLevel(30.0);
-        osm.setMinZoomLevel(2.5);
+        osm.setMinZoomLevel(2.3);
         //osm.setPadding(5,5,5,5);
 
         //Lagymanyosi obol geo pontja
