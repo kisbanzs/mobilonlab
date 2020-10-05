@@ -6,29 +6,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home"
-            android:fontFamily="casual"/>
+            android:fontFamily="casual"
+            android:icon="@drawable/icon_home"
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
+            android:fontFamily="casual"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_tura"
-            android:fontFamily="casual"/>
+            android:title="@string/menu_tura" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow"
-            android:fontFamily="casual"/>
+            android:fontFamily="casual"
+            android:icon="@drawable/ic_menu_mapmode"
+            android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools"
-            android:fontFamily="casual"/>
+            android:fontFamily="casual"
+            android:icon="@drawable/icon_utravalo"
+            android:title="@string/menu_tools" />
         <item
             android:id="@+id/nav_send"
-            android:icon="@drawable/ic_menu_send"
-            android:title="@string/menu_send"
-            android:fontFamily="casual"/>
+            android:fontFamily="casual"
+            android:icon="@drawable/icon_jelent"
+            android:title="@string/menu_send" />
 
     </group>
 

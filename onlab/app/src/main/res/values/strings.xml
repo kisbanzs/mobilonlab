@@ -3,9 +3,16 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">VÍZIVÁNDOR</string>
-    <string name="nav_header_subtitle">zsofi.kisban@gmail.com</string>
+    <string name="nav_header_subtitle">zs@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="tura1">Felső-Tisza</string>
+    <string name="tura2">Tokaj és Bodrogzug</string>
+    <string name="tura3">Dunakanyar</string>
+    <string name="tura4">Szigetköz</string>
+    <string name="tura5">Alsó-Duna</string>
+    <string name="tura6">Kőrösök</string>
+    <string name="tura7">Tisza-tó</string>
 
     <string name="menu_home">Főoldal</string>
     <string name="menu_tura">Túra útvonalak</string>

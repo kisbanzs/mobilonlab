@@ -2,8 +2,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_tura1"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/tura1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura2"
+        android:orderInCategory="100"
+        android:title="@string/tura2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura3"
+        android:orderInCategory="100"
+        android:title="@string/tura3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura4"
+        android:orderInCategory="100"
+        android:title="@string/tura4"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura5"
+        android:orderInCategory="100"
+        android:title="@string/tura5"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura6"
+        android:orderInCategory="100"
+        android:title="@string/tura6"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tura7"
+        android:orderInCategory="100"
+        android:title="@string/tura7"
         app:showAsAction="never" />
 </menu>
