@@ -115,27 +115,84 @@ public class MapFragment extends Fragment implements LocationListener {
         //addMarker(center);
 
 
-        GeoPoint kezdo_allomas_1 = new GeoPoint(48.104927,22.829234);
-        GeoPoint kezdo_allomas_2 = new GeoPoint(48.137781,21.400946);
-        GeoPoint kezdo_allomas_3 = new GeoPoint(47.789443,18.731162);
-        GeoPoint kezdo_allomas_4 = new GeoPoint(47.940391,17.357821);
-        GeoPoint kezdo_allomas_5 = new GeoPoint(46.592602,18.860733);
-        GeoPoint kezdo_allomas_6 = new GeoPoint(46.759521,21.153568);
-        GeoPoint kezdo_allomas_7 = new GeoPoint(47.645895,20.660313);
-
+        //7db túra kezdő állomásainak helye térképen jelölve kék kocsival
         ArrayList<GeoPoint> kezdo_allomasok = new ArrayList<GeoPoint>();
-        kezdo_allomasok.add(kezdo_allomas_1);
-        kezdo_allomasok.add(kezdo_allomas_2);
-        kezdo_allomasok.add(kezdo_allomas_3);
-        kezdo_allomasok.add(kezdo_allomas_4);
-        kezdo_allomasok.add(kezdo_allomas_5);
-        kezdo_allomasok.add(kezdo_allomas_6);
-        kezdo_allomasok.add(kezdo_allomas_7);
+        kezdo_allomasok.add(new GeoPoint(48.104927,22.829234));
+        kezdo_allomasok.add(new GeoPoint(48.137781,21.400946));
+        kezdo_allomasok.add(new GeoPoint(47.789443,18.731162));
+        kezdo_allomasok.add(new GeoPoint(47.940391,17.357821));
+        kezdo_allomasok.add(new GeoPoint(46.592602,18.860733));
+        kezdo_allomasok.add(new GeoPoint(46.759521,21.153568));
+        kezdo_allomasok.add(new GeoPoint(47.645895,20.660313));
 
         for(GeoPoint g: kezdo_allomasok){
             //mc.animateTo(g);
             addMarker(g);
         }
+
+        ArrayList<GeoPoint> felso_tisza = new ArrayList<GeoPoint>();
+            felso_tisza.add(new GeoPoint(48.099701,22.624464));
+            felso_tisza.add(new GeoPoint(48.061861,22.519040));
+            felso_tisza.add(new GeoPoint(48.127612,22.340048));
+        for(GeoPoint g: felso_tisza){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> tokaj_bodrogzug = new ArrayList<GeoPoint>();
+            tokaj_bodrogzug.add(new GeoPoint(48.167749,21.398657));
+            tokaj_bodrogzug.add(new GeoPoint(48.413187,21.637227));
+            tokaj_bodrogzug.add(new GeoPoint(48.360649,21.693310));
+            tokaj_bodrogzug.add(new GeoPoint(48.315088,21.568245));
+        for(GeoPoint g: tokaj_bodrogzug){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> dunakanyar = new ArrayList<GeoPoint>();
+            dunakanyar.add(new GeoPoint(47.765539,18.917588));
+            dunakanyar.add(new GeoPoint(47.682486,19.085478));
+            dunakanyar.add(new GeoPoint(47.571031,19.065174));
+        for(GeoPoint g: dunakanyar){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> szigetkoz = new ArrayList<GeoPoint>();
+            szigetkoz.add(new GeoPoint(47.901520,17.425963));
+            szigetkoz.add(new GeoPoint(47.835826,17.515642));
+        for(GeoPoint g: szigetkoz){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> also_duna = new ArrayList<GeoPoint>();
+            also_duna.add(new GeoPoint(46.497939,18.916054));
+            also_duna.add(new GeoPoint(46.199714,18.826217));
+            also_duna.add(new GeoPoint(46.172750,18.940883));
+        for(GeoPoint g: also_duna){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> korosok = new ArrayList<GeoPoint>();
+            korosok.add(new GeoPoint(46.882307,21.031375));
+            korosok.add(new GeoPoint(46.936571,20.836434));
+            korosok.add(new GeoPoint(46.861703,20.539445));
+        for(GeoPoint g: korosok){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+        ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
+            tisza_to.add(new GeoPoint(47.624602,20.745482));
+            tisza_to.add(new GeoPoint(47.645770,20.660322));
+        for(GeoPoint g: tisza_to){
+            //mc.animateTo(g);
+            addPotty(g);
+        }
+
+
 
 
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -170,6 +227,17 @@ public class MapFragment extends Fragment implements LocationListener {
         marker.setPosition(center);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         marker.setIcon(getResources().getDrawable(R.drawable.ic_kocsimegallo));
+        //osm.getOverlays().clear();
+        osm.getOverlays().add(marker);
+        osm.invalidate();
+        marker.setTitle("Kezdő állomás");
+    }
+
+    public void addPotty (GeoPoint center){
+        Marker marker = new Marker(osm);
+        marker.setPosition(center);
+        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        marker.setIcon(getResources().getDrawable(R.drawable.ic_potty));
         //osm.getOverlays().clear();
         osm.getOverlays().add(marker);
         osm.invalidate();
