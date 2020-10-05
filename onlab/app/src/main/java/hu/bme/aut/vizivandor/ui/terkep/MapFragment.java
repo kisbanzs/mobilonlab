@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ import org.osmdroid.views.overlay.mylocation.DirectedLocationOverlay;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import hu.bme.aut.vizivandor.R;
@@ -58,6 +60,15 @@ public class MapFragment extends Fragment implements LocationListener {
     private DirectedLocationOverlay locationOverlay;
     private static final int PERMISSAO_REQUERIDA = 1;
 
+    private ArrayList<GeoPoint> felso_tisza = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> tokaj_bodrogzug = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> dunakanyar = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> szigetkoz = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> also_duna = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> korosok = new ArrayList<GeoPoint>();
+    private ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
+
+
 
     public MapFragment() {
         // Required empty public constructor
@@ -73,6 +84,7 @@ public class MapFragment extends Fragment implements LocationListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
 
     }
@@ -93,6 +105,9 @@ public class MapFragment extends Fragment implements LocationListener {
                 requestPermissions(permissoes, PERMISSAO_REQUERIDA);
             }
         }
+        
+
+
         //onde mostra a imagem do mapa
         Context ctx = getActivity().getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -130,65 +145,57 @@ public class MapFragment extends Fragment implements LocationListener {
             addMarker(g);
         }
 
-        ArrayList<GeoPoint> felso_tisza = new ArrayList<GeoPoint>();
+        //feltoltom az allomasok helyzeteivel a 7 listát
+
             felso_tisza.add(new GeoPoint(48.099701,22.624464));
             felso_tisza.add(new GeoPoint(48.061861,22.519040));
             felso_tisza.add(new GeoPoint(48.127612,22.340048));
         for(GeoPoint g: felso_tisza){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> tokaj_bodrogzug = new ArrayList<GeoPoint>();
             tokaj_bodrogzug.add(new GeoPoint(48.167749,21.398657));
             tokaj_bodrogzug.add(new GeoPoint(48.413187,21.637227));
             tokaj_bodrogzug.add(new GeoPoint(48.360649,21.693310));
             tokaj_bodrogzug.add(new GeoPoint(48.315088,21.568245));
         for(GeoPoint g: tokaj_bodrogzug){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> dunakanyar = new ArrayList<GeoPoint>();
             dunakanyar.add(new GeoPoint(47.765539,18.917588));
             dunakanyar.add(new GeoPoint(47.682486,19.085478));
             dunakanyar.add(new GeoPoint(47.571031,19.065174));
         for(GeoPoint g: dunakanyar){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> szigetkoz = new ArrayList<GeoPoint>();
+
             szigetkoz.add(new GeoPoint(47.901520,17.425963));
             szigetkoz.add(new GeoPoint(47.835826,17.515642));
         for(GeoPoint g: szigetkoz){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> also_duna = new ArrayList<GeoPoint>();
+
             also_duna.add(new GeoPoint(46.497939,18.916054));
             also_duna.add(new GeoPoint(46.199714,18.826217));
             also_duna.add(new GeoPoint(46.172750,18.940883));
         for(GeoPoint g: also_duna){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> korosok = new ArrayList<GeoPoint>();
+
             korosok.add(new GeoPoint(46.882307,21.031375));
             korosok.add(new GeoPoint(46.936571,20.836434));
             korosok.add(new GeoPoint(46.861703,20.539445));
         for(GeoPoint g: korosok){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
-        ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
+
             tisza_to.add(new GeoPoint(47.624602,20.745482));
             tisza_to.add(new GeoPoint(47.645770,20.660322));
         for(GeoPoint g: tisza_to){
-            //mc.animateTo(g);
             addPotty(g);
         }
 
@@ -230,7 +237,7 @@ public class MapFragment extends Fragment implements LocationListener {
         //osm.getOverlays().clear();
         osm.getOverlays().add(marker);
         osm.invalidate();
-        marker.setTitle("Kezdő állomás");
+        marker.setTitle("Induló állomás");
     }
 
     public void addPotty (GeoPoint center){
@@ -241,9 +248,30 @@ public class MapFragment extends Fragment implements LocationListener {
         //osm.getOverlays().clear();
         osm.getOverlays().add(marker);
         osm.invalidate();
-        marker.setTitle("Kezdő állomás");
+        marker.setTitle("Túra állomás");
     }
 
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_tura1:
+                for(GeoPoint g: felso_tisza){
+                    //mc.animateTo(g);
+                    addPotty(g);
+                }
+                return true;
+            case R.id.action_tura2:
+                for(GeoPoint g: tokaj_bodrogzug){
+                    //mc.animateTo(g);
+                    addPotty(g);
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

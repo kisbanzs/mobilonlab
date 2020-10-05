@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -21,9 +22,17 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
+import org.osmdroid.util.GeoPoint;
+
+import java.util.ArrayList;
+
+import hu.bme.aut.vizivandor.ui.terkep.MapFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    //private MapFragment mapfragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,4 +75,31 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+   /* @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
+        tisza_to.add(new GeoPoint(47.624602,20.745482));
+        tisza_to.add(new GeoPoint(47.645770,20.660322));
+
+        mapfragment = new MapFragment();
+
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_tura7:
+                for(GeoPoint g: tisza_to){
+                    mapfragment.addPotty(g);
+                }
+                return true;
+            case R.id.action_tura2:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
+
+
+
 }
