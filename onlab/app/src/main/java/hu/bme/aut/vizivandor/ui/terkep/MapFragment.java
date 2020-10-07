@@ -14,7 +14,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,6 +56,7 @@ public class MapFragment extends Fragment implements LocationListener {
     private static MapFragment INSTANCE = null;
     View view;
 
+    MyLocationNewOverlay mLocationOverlay;
     MapView map = null;
     private GoogleMap gmap;
     private MapView osm;
@@ -67,6 +73,7 @@ public class MapFragment extends Fragment implements LocationListener {
     private ArrayList<GeoPoint> also_duna = new ArrayList<GeoPoint>();
     private ArrayList<GeoPoint> korosok = new ArrayList<GeoPoint>();
     private ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
+
 
 
 
@@ -105,11 +112,11 @@ public class MapFragment extends Fragment implements LocationListener {
                 requestPermissions(permissoes, PERMISSAO_REQUERIDA);
             }
         }
-        
+
 
 
         //onde mostra a imagem do mapa
-        Context ctx = getActivity().getApplicationContext();
+        final Context ctx = getActivity().getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         osm = (MapView) view.findViewById(R.id.map_id);
         //MapView osm = view.findViewById(R.id.map_id);
@@ -124,26 +131,79 @@ public class MapFragment extends Fragment implements LocationListener {
         osm.setMinZoomLevel(2.3);
         //osm.setPadding(5,5,5,5);
 
+
+
+        //ALSO MENÜ 3 GOMBJAINAK FELADATA:
+        //INDULÓ ÁLLOMÁSOK GOMBJA
+        ToggleButton toggle = (ToggleButton) view.findViewById(R.id.simpleSwitch);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                //7db túra kezdő állomásainak helye térképen jelölve kék kocsival
+                ArrayList<GeoPoint> kezdo_allomasok = new ArrayList<GeoPoint>();
+                kezdo_allomasok.add(new GeoPoint(48.104927,22.829234));
+                kezdo_allomasok.add(new GeoPoint(48.137781,21.400946));
+                kezdo_allomasok.add(new GeoPoint(47.789443,18.731162));
+                kezdo_allomasok.add(new GeoPoint(47.940391,17.357821));
+                kezdo_allomasok.add(new GeoPoint(46.592602,18.860733));
+                kezdo_allomasok.add(new GeoPoint(46.759521,21.153568));
+                kezdo_allomasok.add(new GeoPoint(47.645895,20.660313));
+
+                if (isChecked) {
+                    for(GeoPoint g: kezdo_allomasok){
+                        addMarker(g);
+                    }
+                    System.out.println("kocsi gomb ON");
+                } else {
+                    for(GeoPoint g: kezdo_allomasok){
+                        removeMarker();
+                    }
+                    System.out.println("kocsi gomb OFF");
+
+                }
+            }
+        });
+
+
+
+        //AKTUÁLIS POZÍCIÓ GOMBJA
+        ImageButton btnCurrentLocation = view.findViewById(R.id.button_current_location);
+        btnCurrentLocation.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                //current location
+                mLocationOverlay = new MyLocationNewOverlay(new GpsMyLocationProvider(ctx),osm);
+                mLocationOverlay.enableMyLocation();
+                osm.getOverlays().add(mLocationOverlay);
+
+
+                //GeoPoint current = new GeoPoint(mLocationOverlay.getMyLocation());
+                //mc.animateTo(current);
+                //mc.setZoom(20);
+                //mapFragment.getMap().setMyLocationEnabled(true);
+                System.out.println("jelenlegi helyzetre kattintas");
+
+            }
+        });
+
+        //7 DB TÚRA HELYSZÍN KIVÁLASZTÓ GOMBJA
+
+        String [] values =
+                {"A Felső-Tisza","Tokaj és a Bodrogzug","Dunakanyar túra","Szigetköz szépségei","Alsó-Duna","Körösök","Tisza-tó"};
+        Spinner spinner_turak = (Spinner) view.findViewById(R.id.spinner_turak);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner_turak.setAdapter(adapter);
+        System.out.println(String.valueOf(spinner_turak.getSelectedItem()));
+
+
         //Lagymanyosi obol geo pontja
         GeoPoint center = new GeoPoint(47.462740,19.057963);
         mc.animateTo(center);
         //addMarker(center);
 
 
-        //7db túra kezdő állomásainak helye térképen jelölve kék kocsival
-        ArrayList<GeoPoint> kezdo_allomasok = new ArrayList<GeoPoint>();
-        kezdo_allomasok.add(new GeoPoint(48.104927,22.829234));
-        kezdo_allomasok.add(new GeoPoint(48.137781,21.400946));
-        kezdo_allomasok.add(new GeoPoint(47.789443,18.731162));
-        kezdo_allomasok.add(new GeoPoint(47.940391,17.357821));
-        kezdo_allomasok.add(new GeoPoint(46.592602,18.860733));
-        kezdo_allomasok.add(new GeoPoint(46.759521,21.153568));
-        kezdo_allomasok.add(new GeoPoint(47.645895,20.660313));
 
-        for(GeoPoint g: kezdo_allomasok){
-            //mc.animateTo(g);
-            addMarker(g);
-        }
 
         //feltoltom az allomasok helyzeteivel a 7 listát
 
@@ -234,10 +294,15 @@ public class MapFragment extends Fragment implements LocationListener {
         marker.setPosition(center);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         marker.setIcon(getResources().getDrawable(R.drawable.ic_kocsimegallo));
-        //osm.getOverlays().clear();
         osm.getOverlays().add(marker);
         osm.invalidate();
         marker.setTitle("Induló állomás");
+    }
+
+    public void removeMarker(){
+
+            osm.getOverlays().clear();
+            osm.invalidate();
     }
 
     public void addPotty (GeoPoint center){

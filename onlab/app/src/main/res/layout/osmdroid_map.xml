@@ -5,7 +5,42 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="hu.bme.aut.vizivandor.ui.terkep.MapFragment">
-    <org.osmdroid.views.MapView android:id="@+id/map_id"
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map_id"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="wrap_content"
+        android:weightSum="1.0" >
+
+        <ToggleButton
+            android:id="@+id/simpleSwitch"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".40"
+            android:drawable="@drawable/ic_kocsimegallo"
+            android:textOff="OFF"
+            android:textOn="ON" />
+
+        <ImageButton
+            android:id="@+id/button_current_location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:src="@drawable/ic_menu_mylocation" />
+
+        <Spinner
+            android:text="TÚRÁK"
+            android:id="@+id/spinner_turak"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".20" />
+
+    </LinearLayout>
+
 </LinearLayout>
