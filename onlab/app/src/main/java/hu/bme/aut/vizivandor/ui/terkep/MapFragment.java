@@ -224,6 +224,10 @@ public class MapFragment extends Fragment implements LocationListener {
                 mLocationOverlay = new MyLocationNewOverlay(new GpsMyLocationProvider(ctx),osm);
                 mLocationOverlay.enableMyLocation();
                 osm.getOverlays().add(mLocationOverlay);
+                //mc.animateTo(mLocationOverlay.getMyLocation());
+                //mc.setZoom(11);
+                //System.out.println("eljutunk idáig");
+                //System.out.println(mLocationOverlay.getLastFix());
 
 
                 //GeoPoint current = new GeoPoint(mLocationOverlay.getMyLocation());
@@ -259,6 +263,9 @@ public class MapFragment extends Fragment implements LocationListener {
                 {
                     case "A Felső-Tisza":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(0));
+                        mc.animateTo(kezdo_allomasok.get(0));
+                        mc.setZoom(11);
                         for(GeoPoint g: felso_tisza){
                             addPotty(g);
                         }
@@ -266,6 +273,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Tokaj és a Bodrogzug":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(1));
+                        mc.animateTo(kezdo_allomasok.get(1));
+                        mc.setZoom(11);
                         for(GeoPoint g: tokaj_bodrogzug){
                             addPotty(g);
                         }
@@ -273,6 +283,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Dunakanyar túra":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(2));
+                        mc.animateTo(kezdo_allomasok.get(2));
+                        mc.setZoom(11);
                         for(GeoPoint g: dunakanyar){
                             addPotty(g);
                         }
@@ -280,6 +293,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Szigetköz szépségei":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(3));
+                        mc.animateTo(kezdo_allomasok.get(3));
+                        mc.setZoom(11);
                         for(GeoPoint g: szigetkoz){
                             addPotty(g);
                         }
@@ -287,6 +303,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Alsó-Duna":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(4));
+                        mc.animateTo(kezdo_allomasok.get(4));
+                        mc.setZoom(11);
                         for(GeoPoint g: also_duna){
                             addPotty(g);
                         }
@@ -294,6 +313,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Körösök":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(5));
+                        mc.animateTo(kezdo_allomasok.get(5));
+                        mc.setZoom(11);
                         for(GeoPoint g: korosok){
                             addPotty(g);
                         }
@@ -301,6 +323,9 @@ public class MapFragment extends Fragment implements LocationListener {
 
                     case "Tisza-tó":
                         removeMarker();
+                        addMarker(kezdo_allomasok.get(6));
+                        mc.animateTo(kezdo_allomasok.get(6));
+                        mc.setZoom(11);
                         for(GeoPoint g: tisza_to){
                             addPotty(g);
                         }
