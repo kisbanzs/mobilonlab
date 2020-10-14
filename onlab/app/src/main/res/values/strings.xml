@@ -18,7 +18,7 @@
     <string name="menu_tura">Túra útvonalak</string>
     <string name="menu_slideshow">Térkép</string>
     <string name="menu_tools">Útravaló</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_share">Indulás!</string>
     <string name="menu_send">Jelentkezés</string>
 
     <string name="gym_search">Gym</string>
@@ -26,4 +26,11 @@
     <string name="db">Létszám</string>
     <string name="category">Válassz túra útvonalat</string>
     <string name="egyeb">Megjegyzés</string>
+
+    <string name="tracking_enabled_notif">Tracking is currently enabled. Tap to cancel.</string>
+    <string name="test_email">test@test.com</string>
+    <string name="test_password">testpassword</string>
+    <string name="firebase_path">location</string>
+
+    <!--<string name="mapbox_access_token">pk.eyJ1Ijoia2lzYmFuenMiLCJhIjoiY2tnN25nMHhkMDhxczJ4b2NveHU3azdnMCJ9.e-buNymQwDvXiLdvZHiYOw</string> -->
 </resources>

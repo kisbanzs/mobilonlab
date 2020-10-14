@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    //private MapFragment mapfragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -75,30 +68,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        ArrayList<GeoPoint> tisza_to = new ArrayList<GeoPoint>();
-        tisza_to.add(new GeoPoint(47.624602,20.745482));
-        tisza_to.add(new GeoPoint(47.645770,20.660322));
-
-        mapfragment = new MapFragment();
-
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_tura7:
-                for(GeoPoint g: tisza_to){
-                    mapfragment.addPotty(g);
-                }
-                return true;
-            case R.id.action_tura2:
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 
 
 

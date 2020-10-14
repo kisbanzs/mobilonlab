@@ -29,6 +29,11 @@
             android:fontFamily="casual"
             android:icon="@drawable/icon_jelent"
             android:title="@string/menu_send" />
+        <item
+            android:id="@+id/nav_share"
+            android:fontFamily="casual"
+            android:icon="@drawable/osm_ic_follow_me"
+            android:title="@string/menu_share" />
 
     </group>
 

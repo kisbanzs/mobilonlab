@@ -35,7 +35,7 @@ import hu.bme.aut.vizivandor.data.UtravaloListaItem;
 
 public class UtravaloFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+   // private ToolsViewModel toolsViewModel;
     private TextView listaelemek;
     private EditText ujlistaelem;
     private Button listahozzadas;
@@ -61,8 +61,8 @@ public class UtravaloFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
+        /*toolsViewModel =
+                ViewModelProviders.of(this).get(ToolsViewModel.class);*/
         View root = inflater.inflate(R.layout.fragment_utravalo, container, false);
         return root;
     }

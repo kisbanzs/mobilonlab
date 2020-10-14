@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':mapbox-android-sdk-9.5.0'
 rootProject.name='Vizivandor'
