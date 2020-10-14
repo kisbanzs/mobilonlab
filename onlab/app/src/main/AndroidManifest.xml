@@ -21,7 +21,6 @@
 
         <activity android:name=".ui.tura.ListTuraActivity" />
         <activity android:name=".ui.turainditas.TurainditasActivity"/>
-        <activity android:name=".ui.turainditas.TuraInditas"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

@@ -34,7 +34,8 @@
         android:name="hu.bme.aut.vizivandor.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
-    <activity
+
+    <fragment
         android:id="@+id/nav_share"
         android:name="hu.bme.aut.vizivandor.ui.turainditas.TuraInditas"
         android:label="@string/menu_share"

@@ -2,8 +2,13 @@ package hu.bme.aut.vizivandor.ui.turainditas;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
@@ -13,19 +18,34 @@ import com.mapbox.mapboxsdk.maps.Style;
 
 import hu.bme.aut.vizivandor.R;
 
-public class TuraInditas extends Activity {
+public class TuraInditas extends Fragment {
 
     private MapView mapView;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+
+    public TuraInditas() {
+        // Required empty public constructor
+    }
+
+    /*@Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }*/
 
-        Mapbox.getInstance(this, getString(R.string.access_token));
 
-        setContentView(R.layout.tura_inditas_mapbox);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
 
-        mapView = (MapView) findViewById(R.id.mapView);
+
+
+        Mapbox.getInstance( getActivity(), getString(R.string.access_token));
+
+        View view = inflater.inflate(R.layout.tura_inditas_mapbox, container, false);
+
+        //setContentView(R.layout.tura_inditas_mapbox);
+
+        mapView = (MapView) view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -43,10 +63,12 @@ public class TuraInditas extends Activity {
 
             }
         });
+
+        return view;
     }
 
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
         mapView.onStart();
@@ -86,7 +108,14 @@ public class TuraInditas extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+    }*/
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mapView.onDestroy();
     }
+
 
 
 

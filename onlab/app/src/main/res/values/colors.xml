@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#2149a6</color>
     <color name="colorAccent">#D81B60</color>
     <color name="dot_red">#9B0707</color>
+
+    <color name="mapboxGrayLight">#646060</color>
+    <color name="mapboxWhite">#FDFFEB</color>
 </resources>
