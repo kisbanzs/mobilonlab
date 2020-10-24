@@ -35,9 +35,9 @@
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 
-    <fragment
+    <activity
         android:id="@+id/nav_share"
-        android:name="hu.bme.aut.vizivandor.ui.turainditas.TuraInditas"
+        android:name="hu.bme.aut.vizivandor.ui.turainditas.GoogleMapsActivity"
         android:label="@string/menu_share"
         tools:layout="@layout/tura_inditas_mapbox" />
 </navigation>

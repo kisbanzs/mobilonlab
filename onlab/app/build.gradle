@@ -42,17 +42,18 @@ dependencies {
     implementation 'com.github.florent37:expansionpanel:1.2.2'
     //implementation 'org.osmdroid:osmdroid-android:6.1.8'
 
-    implementation "com.google.android.gms:play-services-maps:17.0.0"
+    //implementation "com.google.android.gms:play-services-maps:17.0.0"
     implementation 'org.osmdroid:osmdroid-android:6.1.8:debug@aar'
+
+    implementation 'com.android.support:multidex:1.0.3'
 
     // FCM
     implementation "com.google.firebase:firebase-messaging:20.3.0"
+
+    //google map
+    //implementation 'com.google.android.gms:play-services-location:17.1.0'
+    //implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
 
-    //navigation map
-    /*implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation:0.42.6'
-    implementation "com.mapbox.navigation:ui:1.0.0"*/
-    implementation project(':mapbox-android-sdk-9.5.0')
-    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.5.1'
-    implementation 'com.android.support:multidex:1.0.3'
 }

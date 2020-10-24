@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import hu.bme.aut.vizivandor.R;
 
+
 public class ListTuraActivity extends AppCompatActivity {
 
     public static final String KEY_TURA_TYPE = "KEY_TURA_TYPE";

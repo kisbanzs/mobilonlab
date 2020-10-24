@@ -35,5 +35,7 @@
     <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
     <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
 
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDtpr2-bKo8j5ajENE2UlIBHT4LDYfM81Y</string>
+
     <!--<string name="mapbox_access_token">pk.eyJ1Ijoia2lzYmFuenMiLCJhIjoiY2tnN25nMHhkMDhxczJ4b2NveHU3azdnMCJ9.e-buNymQwDvXiLdvZHiYOw</string> -->
 </resources>
