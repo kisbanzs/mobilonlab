@@ -1,14 +1,24 @@
 package hu.bme.aut.vizivandor.ui.turainditas;
 
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+
+import com.google.android.gms.maps.MapView;
 
 import hu.bme.aut.vizivandor.R;
 
@@ -18,17 +28,65 @@ import hu.bme.aut.vizivandor.R;
 public class GoogleMapsActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
+    private Button button;
+    private ImageButton mylocationButton;
+    private MyLocationActivity myLocation;
+    private GoogleMap map;
+    private MapView googlemapview;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Retrieve the content view that renders the map.
-        setContentView(R.layout.tura_inditas_mapbox);
+        setContentView(R.layout.tura_inditas_googlemap);
         // Get the SupportMapFragment and request notification
         // when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(R.id.google_map_id);
         mapFragment.getMapAsync(this);
+
+
+        button = findViewById(R.id.startButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean simulateRoute = true;
+                System.out.println("Szimulacio inditasa");
+                /*NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+                        .directionsRoute(currentRoute)
+                        .shouldSimulateRoute(simulateRoute)
+                        .build();
+// Call this method with Context from within an Activity
+                NavigationLauncher.startNavigation(MainActivity.this, options);*/
+            }
+        });
+
+
+        //googlemapview = findViewById(R.id.google_map_id);
+
+       // mylocationButton = findViewById(R.id.mylocation);
+       /* mylocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myLocation.onMapReady(map);
+            }
+        });*/
+
+
     }
+
+
+   /* public void onLocationResult(LocationResult locationResult) {
+        for (Location location : locationResult.getLocations()) {
+            if (currentBestLocation == null
+                    || GeoUtils.isBetterLocation(location,
+                    currentBestLocation)) {
+                currentBestLocation = location;
+            }
+        }
+    }*/
+
 
     /**
      * Manipulates the map when it's available.
@@ -43,11 +101,14 @@ public class GoogleMapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        googleMap.addMarker(new MarkerOptions()
-                .position(sydney)
+        map = googleMap;
+        LatLng budapest = new LatLng(47.460886, 19.051869);
+        map.addMarker(new MarkerOptions()
+                .position(budapest)
                 .title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        map.moveCamera(CameraUpdateFactory.newLatLng(budapest));
+
+        
     }
 }
 
@@ -106,7 +167,7 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tura_inditas_mapbox);
+        setContentView(R.layout.tura_inditas_googlemap);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
