@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
 import hu.bme.aut.vizivandor.R;
+import hu.bme.aut.vizivandor.ui.utravalo.Pozition;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
@@ -41,6 +42,7 @@ public class GoogleMapsActivity extends AppCompatActivity
     private GoogleMap map;
     private GoogleMap mMap;
     private MapView googlemapview;
+    private Pozition poz;
 
 
     @Override
@@ -125,7 +127,9 @@ public class GoogleMapsActivity extends AppCompatActivity
 
         LatLng hungary = new LatLng(47.460886, 19.051869);
 
-        addMarker(hungary);
+        poz = new Pozition();
+        addMarker(hungary, "Hungary", getString(R.string.desc_hungary));
+        addMarker(poz.pozition("Tiszabecs"), "Tiszabecs", "kezdo allomas");
         //drawPolygon();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(hungary));
         //moveCamera(hungary);
@@ -165,18 +169,18 @@ public class GoogleMapsActivity extends AppCompatActivity
         polygon.setFillColor(Color.GREEN);
     }
 
-    private void addMarker(LatLng hungary) {
+    private void addMarker(LatLng hungary, String helysegnev, String tudnivalo) {
         Marker markerHU = mMap.addMarker(
                 new MarkerOptions()
                         .position(hungary)
-                        .title(getString(R.string.title_hungary))
-                        .snippet(getString(R.string.desc_hungary))
+                        .title(helysegnev)
+                        .snippet(tudnivalo)
                         .icon(BitmapDescriptorFactory.fromResource(
                                 R.mipmap.ic_launcher)));
         markerHU.setDraggable(true);
     }
 
-    //private LatLng pozition()
+
 
 }
 
