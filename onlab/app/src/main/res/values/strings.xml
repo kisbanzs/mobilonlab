@@ -20,6 +20,7 @@
     <string name="menu_tools">Útravaló</string>
     <string name="menu_share">Indulás!</string>
     <string name="menu_send">Jelentkezés</string>
+    <string name="menu_post">Üzenő Fal</string>
 
     <string name="gym_search">Gym</string>
     <string name="name">Név</string>
@@ -45,6 +46,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_hungary">Magyarország</string>
     <string name="desc_hungary">Lakosság: 9.700.000</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--<string name="mapbox_access_token">pk.eyJ1Ijoia2lzYmFuenMiLCJhIjoiY2tnN25nMHhkMDhxczJ4b2NveHU3azdnMCJ9.e-buNymQwDvXiLdvZHiYOw</string> -->
 </resources>

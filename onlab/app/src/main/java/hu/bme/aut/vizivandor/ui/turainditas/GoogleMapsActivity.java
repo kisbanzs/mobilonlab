@@ -129,7 +129,7 @@ public class GoogleMapsActivity extends AppCompatActivity
 
         poz = new Pozition();
         addMarker(hungary, "Hungary", getString(R.string.desc_hungary));
-        addMarker(poz.pozition("Tiszabecs"), "Tiszabecs", "kezdo allomas");
+        addMarker(poz.pozition("Tura1"), "Tiszabecs", "kezdo allomas");
         //drawPolygon();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(hungary));
         //moveCamera(hungary);

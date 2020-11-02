@@ -2,6 +2,8 @@ package hu.bme.aut.vizivandor.ui.utravalo;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 public class Pozition {
 
     public LatLng pozition(String s){
@@ -11,11 +13,22 @@ public class Pozition {
             System.out.println("BELEPTEM IDE");
         System.out.println(s);
 
+
+        ArrayList<LatLng> back = new ArrayList<LatLng>();
+
             switch(s){
                 case "Hungary":
                     return new LatLng(47.460886, 19.051869);
-                case "Tiszabecs":
+                case "Tura1":
                     return new LatLng(48.104927,22.829234);
+                       /* back.add(new LatLng(48.104927,22.829234));
+                        back.add(new LatLng(48.099701,22.624464));
+                        back.add(new LatLng(48.061861,22.519040));
+                        back.add(new LatLng(48.127612,22.340048));
+                        for(int i=0; i<back.size(); i++){
+                            return back.get(i);
+                        }*/
+
                 case "Szatmarcseke":
                     return new LatLng(48.099701,22.624464);
                 case "Tivadar":

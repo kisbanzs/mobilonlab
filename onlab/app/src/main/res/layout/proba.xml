@@ -18,7 +18,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/mapboxGrayLight"
+            android:background="@color/GrayLight"
             android:enabled="true"
             android:text="Start navigation"
             android:textColor="@color/mapboxWhite" />

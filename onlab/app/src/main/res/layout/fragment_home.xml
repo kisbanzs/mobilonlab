@@ -4,38 +4,38 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hu.bme.aut.vizivandor.ui.home.HomeFragment"
-    android:background="@drawable/side_nav_bar">
-
+    android:background="@drawable/vizitura2"
+    tools:context="hu.bme.aut.vizivandor.ui.home.HomeFragment">
 
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:fontFamily="casual"
         android:text="Legyél TE is Vízivándor!"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#2149a6"
-        android:textSize="64sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+        android:textColor="#1A3802"
+        android:textSize="52sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_width="240dp"
+        android:layout_height="410dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="180dp"
         android:fontFamily="casual"
         android:gravity="bottom"
         android:text="Fedezd fel a természetet olyan oldaláról, ami átlagon felüli! Csatlakozz azokhoz, akik már megtapasztalták, a különleges vízi világ nyújtotta kalandokat."
         android:textAlignment="center"
-        android:textColor="#2149a6"
-        android:textSize="24sp"
+        android:textColor="#CBEBC6"
+        android:textSize="18sp"
         android:textStyle="bold|italic" />
-
-
 
 
 </RelativeLayout>
