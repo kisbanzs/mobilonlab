@@ -11,7 +11,7 @@ public class SeePostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.see_post_cards_view);
+        setContentView(R.layout.fragment_post_see_post_cards);
 
 
     }

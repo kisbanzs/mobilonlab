@@ -21,6 +21,8 @@
     <string name="menu_share">Indulás!</string>
     <string name="menu_send">Jelentkezés</string>
     <string name="menu_post">Üzenő Fal</string>
+    <string name="menu_login">Bejelentkezés</string>
+    <string name="menu_register">Regisztráció</string>
 
     <string name="gym_search">Gym</string>
     <string name="name">Név</string>

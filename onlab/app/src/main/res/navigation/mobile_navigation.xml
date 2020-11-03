@@ -21,7 +21,7 @@
         android:id="@+id/nav_slideshow"
         android:name="hu.bme.aut.vizivandor.ui.terkep.MapFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/osmdroid_map" />
+        tools:layout="@layout/fragment_terkep_osmdroid" />
 
     <fragment
         android:id="@+id/nav_tools"
@@ -39,10 +39,20 @@
         android:id="@+id/nav_share"
         android:name="hu.bme.aut.vizivandor.ui.turainditas.GoogleMapsActivity"
         android:label="@string/menu_share"
-        tools:layout="@layout/tura_inditas_googlemap" />
+        tools:layout="@layout/activity_tura_inditas_googlemap" />
     <fragment
         android:id="@+id/postFragment"
         android:name="hu.bme.aut.vizivandor.ui.post.PostFragment"
         android:label="@string/menu_post"
-        tools:layout="@layout/home_postactivity" />
+        tools:layout="@layout/fragment_post_newpost" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="hu.bme.aut.vizivandor.ui.login.LoginActivity"
+        android:label="@string/menu_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="hu.bme.aut.vizivandor.ui.login.RegisterActivity"
+        android:label="@string/menu_register"
+        tools:layout="@layout/activity_register"/>
 </navigation>

@@ -6,15 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +17,6 @@ import java.util.List;
 import hu.bme.aut.vizivandor.R;
 import hu.bme.aut.vizivandor.data.UtravaloListaDatabase;
 import hu.bme.aut.vizivandor.data.UtravaloListaItem;
-import hu.bme.aut.vizivandor.ui.utravalo.ToolsViewModel;
 
 
 public class UtravaloAdapter
@@ -42,7 +36,7 @@ public class UtravaloAdapter
     public UtravaloViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.felsorolt_lista, parent, false);
+                .inflate(R.layout.fragment_tura_felsorolt_lista, parent, false);
         return new UtravaloViewHolder(itemView);
     }
 

@@ -69,4 +69,6 @@ dependencies {
     // FCM
     //implementation "com.google.firebase:firebase-messaging:20.3.0"
 
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
 }

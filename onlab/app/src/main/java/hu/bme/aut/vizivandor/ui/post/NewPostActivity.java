@@ -1,6 +1,5 @@
 package hu.bme.aut.vizivandor.ui.post;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,7 +48,7 @@ public class NewPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_postactivity);
+        setContentView(R.layout.fragment_post_newpost);
 
         postBtn = (Button)findViewById(R.id.postBtn);
         textDesc = (EditText)findViewById(R.id.textDesc);
@@ -99,6 +98,8 @@ public class NewPostActivity extends AppCompatActivity {
                                 }
                             });*/
                             Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
+
+
                             final DatabaseReference newPost = databaseRef.push();
                             //adding post contents to database reference
                             mDatabaseUsers.addValueEventListener(new ValueEventListener() {
