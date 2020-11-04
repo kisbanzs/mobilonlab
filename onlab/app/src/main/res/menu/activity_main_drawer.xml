@@ -35,11 +35,11 @@
             android:icon="@drawable/osm_ic_follow_me"
             android:title="@string/menu_share" />
 
-        <item
+        <!--<item
             android:id="@+id/postFragment"
             android:fontFamily="casual"
             android:icon="@drawable/bonuspack_bubble"
-            android:title="@string/menu_post" />
+            android:title="@string/menu_post" />-->
 
     </group>
     <item android:title="Login">
