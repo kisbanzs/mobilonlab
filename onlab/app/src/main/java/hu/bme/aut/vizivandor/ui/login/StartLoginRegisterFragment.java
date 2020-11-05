@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import hu.bme.aut.vizivandor.R;
 
-public class MainLoginRegisterFragment extends Fragment {
+public class StartLoginRegisterFragment extends Fragment {
 
     private Button register;
     private Button login;
@@ -21,7 +21,7 @@ public class MainLoginRegisterFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         /*homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);*/
-        View root = inflater.inflate(R.layout.fragment_main_login_register, container, false);
+        View root = inflater.inflate(R.layout.fragment_start_login_register, container, false);
 
         register = root.findViewById(R.id.btnRegister);
         login = root.findViewById(R.id.btnLogin);
