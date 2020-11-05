@@ -45,14 +45,19 @@
         android:name="hu.bme.aut.vizivandor.ui.post.PostFragment"
         android:label="@string/menu_post"
         tools:layout="@layout/fragment_post_newpost" />
-    <activity
-        android:id="@+id/loginActivity"
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="hu.bme.aut.vizivandor.ui.login.MainLoginRegisterFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_main_login_register" />
+    <!--<activity
+        android:id="@+id/nav_login"
         android:name="hu.bme.aut.vizivandor.ui.login.LoginActivity"
         android:label="@string/menu_login"
         tools:layout="@layout/activity_login" />
     <activity
-        android:id="@+id/registerActivity"
+        android:id="@+id/nav_register"
         android:name="hu.bme.aut.vizivandor.ui.login.RegisterActivity"
         android:label="@string/menu_register"
-        tools:layout="@layout/activity_register"/>
+        tools:layout="@layout/activity_register"/>-->
 </navigation>
