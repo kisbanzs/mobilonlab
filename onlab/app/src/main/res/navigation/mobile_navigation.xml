@@ -47,17 +47,8 @@
         tools:layout="@layout/fragment_post_newpost" />
     <fragment
         android:id="@+id/nav_login"
-        android:name="hu.bme.aut.vizivandor.ui.login.StartLoginRegisterFragment"
+        android:name="hu.bme.aut.vizivandor.ui.login.LoginFragment"
         android:label="@string/menu_login"
-        tools:layout="@layout/fragment_start_login_register" />
-    <!--<activity
-        android:id="@+id/nav_login"
-        android:name="hu.bme.aut.vizivandor.ui.login.LoginActivity"
-        android:label="@string/menu_login"
-        tools:layout="@layout/activity_login" />
-    <activity
-        android:id="@+id/nav_register"
-        android:name="hu.bme.aut.vizivandor.ui.login.RegisterActivity"
-        android:label="@string/menu_register"
-        tools:layout="@layout/activity_register"/>-->
+        tools:layout="@layout/fragment_login" />
+
 </navigation>
