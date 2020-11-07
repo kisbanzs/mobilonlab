@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class NewLocationDatabase extends BaseActivity {
 
-    private static final String TAG = "NewPostActivity";
+    private static final String TAG = "NewPostActivitynemfogkelleni";
     private static final String REQUIRED = "Required";
 
     // [START declare_database_ref]
@@ -80,7 +80,7 @@ public class NewLocationDatabase extends BaseActivity {
                         if (user == null) {
                             // User is null, error out
                             Log.e(TAG, "User " + userId + " is unexpectedly null");
-                            Toast.makeText(NewPostActivity.this,
+                            Toast.makeText(NewPostActivitynemfogkelleni.this,
                                     "Error: could not fetch user.",
                                     Toast.LENGTH_SHORT).show();
                         } else {

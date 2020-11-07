@@ -42,7 +42,7 @@
         tools:layout="@layout/activity_tura_inditas_googlemap" />
     <fragment
         android:id="@+id/postFragment"
-        android:name="hu.bme.aut.vizivandor.ui.post.PostFragment"
+        android:name="hu.bme.aut.vizivandor.ui.post.MainPostFragment"
         android:label="@string/menu_post"
         tools:layout="@layout/fragment_post_newpost" />
     <fragment

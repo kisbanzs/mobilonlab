@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context="hu.bme.aut.vizivandor.ui.post.PostFragment">
+    android:id="@+id/posthomescreenlayout"
+    tools:context="hu.bme.aut.vizivandor.ui.post.MainPostFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import hu.bme.aut.vizivandor.R;
 
 
-public class PostFragment extends Fragment {
+public class MainPostFragment extends Fragment {
 
     private ImageButton btnNew;
     private ImageButton btnMessages;
@@ -35,6 +35,12 @@ public class PostFragment extends Fragment {
             public void onClick(final View view) {
                 Intent intent = new Intent(getActivity(), NewPostActivity.class);
                 startActivity(intent);
+
+                /*NewPostFragment nextFrag = new NewPostFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.posthomescreenlayout, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();*/
             }
         });
 

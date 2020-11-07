@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import hu.bme.aut.vizivandor.R;
 
@@ -39,6 +40,9 @@ public class LogoutFragment extends Fragment {
                 getActivity().finish();
             }
         });
+
+        //FirebaseDatabase.getInstance().getReference().child("VizivandorFirebase").child("VizivandorF").setValue("abcd");
+
 
         return root;
 

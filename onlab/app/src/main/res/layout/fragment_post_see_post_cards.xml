@@ -7,20 +7,15 @@
     android:layout_height="match_parent"
     tools:context="hu.bme.aut.vizivandor.ui.post.SeePostActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lista_elemek"
+
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            >
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/listView"/>
 
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
 
 </LinearLayout>

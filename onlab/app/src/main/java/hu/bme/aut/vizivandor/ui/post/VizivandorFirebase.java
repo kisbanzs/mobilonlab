@@ -4,11 +4,38 @@ package hu.bme.aut.vizivandor.ui.post;
 
 public class VizivandorFirebase {
 
-        private String title, desc, imageUrl, username;
+    private String title;
+    private String description;
 
-        public VizivandorFirebase(String title, String desc, String imageUrl, String username) {
+    public VizivandorFirebase() {
+    }
+
+    public VizivandorFirebase(String title, String desc) {
+        this.title = title;
+        this.description = desc;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /* private String title, description, imageUrl, username;
+
+        public VizivandorFirebase(String title, String description, String imageUrl, String username) {
             this.title = title;
-            this.desc = desc;
+            this.description = description;
             this.imageUrl=imageUrl;
             this.username = username;
         }
@@ -31,8 +58,8 @@ public class VizivandorFirebase {
             this.title = title;
         }
 
-        public void setDesc(String desc) {
-            this.desc = desc;
+        public void setDescription(String description) {
+            this.description = description;
         }
 
         public String getImageUrl() {
@@ -43,8 +70,8 @@ public class VizivandorFirebase {
             return title;
         }
 
-        public String getDesc() {
-            return desc;
-        }
+        public String getDescription() {
+            return description;
+        }*/
 
     }
