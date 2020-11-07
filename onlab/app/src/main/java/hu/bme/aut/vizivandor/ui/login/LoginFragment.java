@@ -1,6 +1,7 @@
 package hu.bme.aut.vizivandor.ui.login;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,9 +44,16 @@ public class LoginFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
-                loginUser(txt_email, txt_password);
+
+                if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                    Toast.makeText(getActivity(), "Empty fields", Toast.LENGTH_SHORT).show();
+                }  else {
+                    loginUser(txt_email, txt_password);
+                }
+
             }
         });
 

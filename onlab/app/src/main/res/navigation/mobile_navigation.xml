@@ -47,8 +47,8 @@
         tools:layout="@layout/fragment_post_newpost" />
     <fragment
         android:id="@+id/nav_login"
-        android:name="hu.bme.aut.vizivandor.ui.login.LoginFragment"
+        android:name="hu.bme.aut.vizivandor.ui.login.StartLoginRegisterFragment"
         android:label="@string/menu_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_start_login_register" />
 
 </navigation>

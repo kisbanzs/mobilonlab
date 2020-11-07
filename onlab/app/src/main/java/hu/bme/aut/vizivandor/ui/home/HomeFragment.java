@@ -15,12 +15,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import hu.bme.aut.vizivandor.R;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private VideoView mVideoView;
+
+    private TextView username;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +50,18 @@ public class HomeFragment extends Fragment {
                 mediaPlayer.setLooping(true);
             }
         });*/
+
+        username = root.findViewById(R.id.usernameid);
+        String user;
+
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            user = "Még nincs felhasználó bejelentkezve";
+        }
+        else{
+            user = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        }
+
+        username.setText(user);
 
         return root;
     }

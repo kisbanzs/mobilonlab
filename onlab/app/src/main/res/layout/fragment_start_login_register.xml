@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/startregister"
-    tools:content="hu.bme.aut.vizivandor.ui.login.MainLoginRegisterFragment">
+    tools:content="hu.bme.aut.vizivandor.ui.login.StartLoginRegisterFragment">
 
-    <Button
+    <!--<Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
@@ -20,7 +20,7 @@
         android:text="Login"
         android:id="@+id/btnLogin"
         android:layout_below="@id/btnRegister"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="100dp"/>-->
 
 
 </LinearLayout>

@@ -61,7 +61,7 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 LoginFragment nextFrag = new LoginFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.regiteractivity, nextFrag, "findThisFragment")
+                        .replace(R.id.registerfragmentid, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
             }
@@ -80,12 +80,12 @@ public class RegisterFragment extends Fragment {
                         Toast.makeText(getActivity(), "Registering user succesfuly", Toast.LENGTH_SHORT).show();
                         LoginFragment nextFrag = new LoginFragment();
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.regiteractivity, nextFrag, "findThisFragment")
+                                .replace(R.id.registerfragmentid, nextFrag, "findThisFragment")
                                 .addToBackStack(null)
                                 .commit();
                     }
                     else {
-                        Toast.makeText(getActivity(), "Registeration failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Registration failed", Toast.LENGTH_SHORT).show();
                     }
             }
         });

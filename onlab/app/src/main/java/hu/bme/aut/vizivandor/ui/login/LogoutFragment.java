@@ -1,7 +1,6 @@
 package hu.bme.aut.vizivandor.ui.login;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import hu.bme.aut.vizivandor.R;
-import hu.bme.aut.vizivandor.ui.home.HomeFragment;
 
 public class LogoutFragment extends Fragment {
 
@@ -35,10 +33,10 @@ public class LogoutFragment extends Fragment {
                 Toast.makeText(getActivity(), "Logged out", Toast.LENGTH_SHORT).show();
                 LoginFragment nextFrag = new LoginFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.loginlayout, nextFrag, "findThisFragment")
+                        .replace(R.id.logoutid, nextFrag, "findThisFragment")
                         .addToBackStack(null)
                         .commit();
-                //getActivity().finish();
+                getActivity().finish();
             }
         });
 

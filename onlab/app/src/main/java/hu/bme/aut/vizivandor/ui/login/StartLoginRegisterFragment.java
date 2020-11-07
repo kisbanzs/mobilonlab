@@ -1,4 +1,4 @@
-/*package hu.bme.aut.vizivandor.ui.login;
+package hu.bme.aut.vizivandor.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import hu.bme.aut.vizivandor.R;
 import hu.bme.aut.vizivandor.ui.home.HomeFragment;
@@ -24,7 +26,24 @@ public class StartLoginRegisterFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.fragment_start_login_register, container, false);
 
-        register = root.findViewById(R.id.btnRegister);
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            LoginFragment nextFrag= new LoginFragment();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.startregister, nextFrag, "findThisFragment")
+                    .addToBackStack(null)
+                    .commit();
+        }
+        else{
+            LogoutFragment nextFrag= new LogoutFragment();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.startregister, nextFrag, "findThisFragment")
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+
+
+        /*register = root.findViewById(R.id.btnRegister);
         login = root.findViewById(R.id.btnLogin);
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +65,8 @@ public class StartLoginRegisterFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().finish();
             }
-        });
+        });*/
 
         return root;
     }
 }
-*/

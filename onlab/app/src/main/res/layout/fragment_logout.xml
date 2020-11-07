@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:id="@+id/logoutid"
     tools:content="hu.bme.aut.vizivandor.ui.login.MainLoginRegisterActivity">
 
     <Button
