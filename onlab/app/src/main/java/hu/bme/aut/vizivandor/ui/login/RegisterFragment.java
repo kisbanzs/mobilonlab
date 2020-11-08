@@ -2,6 +2,7 @@ package hu.bme.aut.vizivandor.ui.login;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,27 +17,35 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import hu.bme.aut.vizivandor.R;
 
+import static androidx.constraintlayout.motion.widget.MotionScene.TAG;
+
 public class RegisterFragment extends Fragment {
 
+   // private EditText username;
     private EditText email;
     private EditText password;
     private Button register;
     private Button login;
 
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                 ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_register, container, false);
 
+        //username = root.findViewById(R.id.usernameField);
         email = root.findViewById(R.id.emailField);
         password = root.findViewById(R.id.passwordField);
         register = root.findViewById(R.id.registerBtn);
         login = root.findViewById(R.id.login);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -45,6 +54,7 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
+                //String txt_username = username.getText().toString();
 
                 if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(getActivity(), "Empty fields", Toast.LENGTH_SHORT).show();
@@ -73,6 +83,7 @@ public class RegisterFragment extends Fragment {
 
     private void registerUser(String email, String password) {
 
+
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -89,6 +100,7 @@ public class RegisterFragment extends Fragment {
                     }
             }
         });
+
 
     }
 }

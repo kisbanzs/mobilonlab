@@ -40,9 +40,9 @@ public class SeePostActivity extends AppCompatActivity {
                 for(DataSnapshot snapshot: datasnapshot.getChildren()){
 
                     VizivandorFirebase vf = snapshot.getValue(VizivandorFirebase.class);
-                    String txt = vf.getTitle() + " : " + vf.getDescription();
+                    String txt = vf.getTitle() + " : " + vf.getDescription() + " . " + vf.getUsername();
                     list.add(txt);
-                    System.out.println(vf.getDescription());
+                    System.out.println(vf.getUsername());
                 }
                 adapter.notifyDataSetChanged();
             }

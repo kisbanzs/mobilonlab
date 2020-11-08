@@ -6,14 +6,21 @@ public class VizivandorFirebase {
 
     private String title;
     private String description;
+    private String imageUrl;
+    private String username;
+
+
 
     public VizivandorFirebase() {
     }
 
-    public VizivandorFirebase(String title, String desc) {
+    public VizivandorFirebase(String title, String description, String imageUrl, String username) {
         this.title = title;
-        this.description = desc;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.username = username;
     }
+
 
     public String getTitle() {
         return title;
@@ -29,6 +36,22 @@ public class VizivandorFirebase {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /* private String title, description, imageUrl, username;

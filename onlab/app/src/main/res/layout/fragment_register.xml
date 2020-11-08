@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Register"/>
 
-        <!--<EditText
+       <!-- <EditText
             android:background="@color/GrayLight"
             android:layout_margin="8dp"
             android:id="@+id/usernameField"

@@ -6,6 +6,7 @@
         android:orientation="vertical"
         android:background="@color/GrayLight"
         android:layout_height="match_parent"
+        android:id="@+id/newpostfragmentlayout"
         tools:context="hu.bme.aut.vizivandor.ui.post.NewPostActivity">
 
 
