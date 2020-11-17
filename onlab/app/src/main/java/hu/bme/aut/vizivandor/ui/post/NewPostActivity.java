@@ -80,7 +80,8 @@ public class NewPostActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String txtTitle = text_title.getText().toString();
                 final String txtDesc = text_description.getText().toString();
-                final String txtUsername = mCurrentUser.getUid();
+                final String txtUsername = mCurrentUser.getEmail();
+
 
 
                /* if(txtTitle.isEmpty() || txtDesc.isEmpty()){

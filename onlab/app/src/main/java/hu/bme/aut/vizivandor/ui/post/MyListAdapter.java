@@ -3,14 +3,9 @@ package hu.bme.aut.vizivandor.ui.post;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -44,7 +39,7 @@ public class MyListAdapter extends FirebaseRecyclerAdapter<MyListData, MyListAda
         //final MyListData myListData = model;
         holder.textTitle.setText(model.getTitle());
         holder.textDesc.setText(model.getDescription());
-        holder.textUser.setText(model.getUser());
+        holder.textUser.setText(model.getUsername());
 
         //holder.imageView.setImageResource(listdata[position].getImgId());
         /*holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
