@@ -1,12 +1,16 @@
 package hu.bme.aut.vizivandor.ui.post;
 
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class VizivandorFirebase {
 
     private String title;
     private String description;
-    private String imageUrl;
+    //private String imageUrl;
     private String username;
 
 
@@ -14,11 +18,24 @@ public class VizivandorFirebase {
     public VizivandorFirebase() {
     }
 
-    public VizivandorFirebase(String title, String description, String imageUrl, String username) {
+    public VizivandorFirebase(String title, String description,String username) {
         this.title = title;
         this.description = description;
-        this.imageUrl = imageUrl;
+        //this.imageUrl = imageUrl;
         this.username = username;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("username", username);
+        result.put("title", title);
+        result.put("description", description);
+        //result.put("imageUrl", imageUrl);
+        //result.put("starCount", starCount);
+        //result.put("stars", stars);
+
+        return result;
     }
 
 
@@ -38,13 +55,11 @@ public class VizivandorFirebase {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+    /*public String getImageUrl() { return imageUrl; }
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
+    }*/
 
     public String getUsername() {
         return username;

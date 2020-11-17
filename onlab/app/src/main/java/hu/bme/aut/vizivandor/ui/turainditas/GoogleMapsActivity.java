@@ -24,7 +24,6 @@ import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
 import hu.bme.aut.vizivandor.R;
-import hu.bme.aut.vizivandor.ui.utravalo.Pozition;
 
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.

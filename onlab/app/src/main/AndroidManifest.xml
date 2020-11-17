@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.post.NewPostActivitynemfogkelleni" />
+        <activity android:name=".ui.post.SinglePostActivity" />
         <activity android:name=".ui.post.SeePostActivity" />
         <activity android:name=".ui.post.NewPostActivity"/>
 

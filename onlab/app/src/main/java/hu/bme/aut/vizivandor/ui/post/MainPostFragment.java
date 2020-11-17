@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import hu.bme.aut.vizivandor.R;
 
@@ -30,11 +33,21 @@ public class MainPostFragment extends Fragment {
         btnNew = root.findViewById(R.id.btnNewPost);
         btnMessages = root.findViewById(R.id.btnSeePosts);
 
+
+
         btnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                Intent intent = new Intent(getActivity(), NewPostActivity.class);
-                startActivity(intent);
+
+                if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                    Toast.makeText(getActivity(), "Nincs bejelentkezett felhasználó, előbb lépjen be", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent intent = new Intent(getActivity(), NewPostActivity.class);
+                    startActivity(intent);
+                }
+
+
 
                 /*NewPostFragment nextFrag = new NewPostFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()

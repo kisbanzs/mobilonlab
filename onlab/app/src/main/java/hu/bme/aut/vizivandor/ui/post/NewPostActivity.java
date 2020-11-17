@@ -83,11 +83,11 @@ public class NewPostActivity extends AppCompatActivity {
                 final String txtUsername = mCurrentUser.getUid();
 
 
-                if(txtTitle.isEmpty() || txtDesc.isEmpty()){
+               /* if(txtTitle.isEmpty() || txtDesc.isEmpty()){
                     Toast.makeText(NewPostActivity.this, "Empty title or description", Toast.LENGTH_SHORT).show();
                 } else {
 
-                   /* StorageReference filepath = storage.child("post_images").child(uri.getLastPathSegment());
+                    StorageReference filepath = storage.child("imageUrl").child(uri.getLastPathSegment());
                     filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -99,10 +99,11 @@ public class NewPostActivity extends AppCompatActivity {
                             final DatabaseReference newPost = databaseRef.push();
 
 
-                            String key = database.getReference("VizivandorFirebase").push().getKey();
+                           /* String key = database.getReference("VizivandorFirebase").push().getKey();
                             newPost.child(key).child("title").setValue(txtTitle);
                             newPost.child(key).child("description").setValue(txtDesc);
                             //newPost.child(key).child("imageUrl").setValue(downloadUrl.toString());
+
 
                         }
                     });*/
@@ -120,6 +121,7 @@ public class NewPostActivity extends AppCompatActivity {
 
 
 
+
                   /*  MainPostFragment nextFrag = new MainPostFragment();
                     NewPostActivity.this.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.newpostfragmentlayout, nextFrag, "findThisFragment")
@@ -129,7 +131,7 @@ public class NewPostActivity extends AppCompatActivity {
                 }
 
 
-            }
+
         });
 
        /* HashMap<String, Object> map = new HashMap<>();

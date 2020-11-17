@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.utravalo;
+package hu.bme.aut.vizivandor.ui.turainditas;
 
 import com.google.android.gms.maps.model.LatLng;
 

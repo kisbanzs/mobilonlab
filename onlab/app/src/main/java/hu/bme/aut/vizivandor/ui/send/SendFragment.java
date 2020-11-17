@@ -92,8 +92,6 @@ public class SendFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(Intent.ACTION_SEND);
-                //it.putExtra(Intent.EXTRA_EMAIL, new String[]{eTo.getText().toString()});
-                //it.putExtra(Intent.EXTRA_SUBJECT,eSubject.getText().toString());
                 it.putExtra(Intent.EXTRA_EMAIL, new String[]{"zsofi.kisban@gmail.com"});
                 it.putExtra(Intent.EXTRA_SUBJECT, "Vízivándor jelentkezés");
                 it.putExtra(Intent.EXTRA_TEXT,"Vízivándor táborra jelentkezem "
