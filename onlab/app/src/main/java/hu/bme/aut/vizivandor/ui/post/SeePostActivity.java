@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,10 +39,6 @@ import hu.bme.aut.vizivandor.R;
 public class SeePostActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ListView listview;
-    private TextView title;
-    private TextView desc;
-    private TextView username;
     MyListAdapter adapter;
 
     private String post_key = null;
@@ -53,6 +51,7 @@ public class SeePostActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<MyListData> myListData
@@ -61,6 +60,8 @@ public class SeePostActivity extends AppCompatActivity {
                 .build();
 
         adapter = new MyListAdapter(myListData);
+
+
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SeePostActivity.this));

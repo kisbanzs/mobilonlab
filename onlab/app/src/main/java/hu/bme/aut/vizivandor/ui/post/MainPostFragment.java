@@ -60,8 +60,13 @@ public class MainPostFragment extends Fragment {
         btnMessages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                Intent intent = new Intent(getActivity(), SeePostActivity.class);
-                startActivity(intent);
+                if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                    Toast.makeText(getActivity(), "Nincs bejelentkezett felhasználó, előbb lépjen be", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(getActivity(), SeePostActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

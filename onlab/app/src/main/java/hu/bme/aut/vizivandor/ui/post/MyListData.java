@@ -1,9 +1,12 @@
 package hu.bme.aut.vizivandor.ui.post;
 
+import android.widget.Button;
+
 public class MyListData{
     private String title;
     private String description;
     private String username;
+
     //private int imgId;
     public MyListData(String title, String description, String user) {
         this.title = title;

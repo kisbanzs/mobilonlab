@@ -24,7 +24,7 @@
             android:id="@+id/post_image"
             android:scaleType="centerCrop"/>-->
 
-        
+
         <TextView
             android:id="@+id/post_title_txtview"
             android:layout_width="match_parent"
@@ -34,8 +34,17 @@
             android:textStyle="bold"
             android:text="Post Title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
+        <!--<Button
+            android:id="@+id/post_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="308dp"
+            android:text="Törlés"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/post_desc_txtview"
@@ -60,6 +69,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/post_desc_txtview"/>
+
+        <Button
+            android:id="@+id/post_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Törlés"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_user"/>
 
 
 

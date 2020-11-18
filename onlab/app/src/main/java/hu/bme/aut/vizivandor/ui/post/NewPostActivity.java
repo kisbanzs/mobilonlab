@@ -25,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import hu.bme.aut.vizivandor.R;
+import hu.bme.aut.vizivandor.ui.login.RegisterFragment;
 
 
 public class NewPostActivity extends AppCompatActivity {
@@ -120,10 +121,10 @@ public class NewPostActivity extends AppCompatActivity {
 
 
 
+                    startActivity(new Intent(NewPostActivity.this, SeePostActivity.class));
+                    NewPostActivity.this.finish();
 
-
-
-                  /*  MainPostFragment nextFrag = new MainPostFragment();
+                    /*MainPostFragment nextFrag = new MainPostFragment();
                     NewPostActivity.this.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.newpostfragmentlayout, nextFrag, "findThisFragment")
                             .addToBackStack(null)

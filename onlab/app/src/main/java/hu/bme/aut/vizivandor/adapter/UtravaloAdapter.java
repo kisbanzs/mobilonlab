@@ -36,7 +36,7 @@ public class UtravaloAdapter
     public UtravaloViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.fragment_tura_felsorolt_lista, parent, false);
+                .inflate(R.layout.fragment_utravalo_felsorolt_lista, parent, false);
         return new UtravaloViewHolder(itemView);
     }
 
