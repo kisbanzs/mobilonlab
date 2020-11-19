@@ -53,8 +53,10 @@ public class NewPostActivity extends AppCompatActivity {
         text_title = findViewById(R.id.textTitle);
         text_description = findViewById(R.id.textDesc);
         post = findViewById(R.id.postBtn);
+
         storage = FirebaseStorage.getInstance().getReference();
-        databaseRef = database.getInstance().getReference().child("VizivandorFirebase");
+        database = FirebaseDatabase.getInstance();
+        databaseRef = database.getReference().child("VizivandorFirebase");
 
 
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -62,7 +64,6 @@ public class NewPostActivity extends AppCompatActivity {
         System.out.println(mCurrentUser.getUid());
         //mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("username").child(mCurrentUser.getUid());
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +85,21 @@ public class NewPostActivity extends AppCompatActivity {
                 final String txtUsername = mCurrentUser.getEmail();
 
 
+                    final DatabaseReference newPost = databaseRef.push();
 
-               /* if(txtTitle.isEmpty() || txtDesc.isEmpty()){
+
+                    String key = database.getReference("VizivandorFirebase").push().getKey();
+                    newPost.child("title").setValue(txtTitle);
+                    newPost.child("description").setValue(txtDesc);
+                    newPost.child("username").setValue(txtUsername);
+
+                    startActivity(new Intent(NewPostActivity.this, SeePostActivity.class));
+                    NewPostActivity.this.finish();
+
+
+                }
+
+                /* if(txtTitle.isEmpty() || txtDesc.isEmpty()){
                     Toast.makeText(NewPostActivity.this, "Empty title or description", Toast.LENGTH_SHORT).show();
                 } else {
 
@@ -110,37 +124,8 @@ public class NewPostActivity extends AppCompatActivity {
                         }
                     });*/
 
-                    final DatabaseReference newPost = databaseRef.push();
-
-
-                    String key = database.getReference("VizivandorFirebase").push().getKey();
-                    newPost.child("title").setValue(txtTitle);
-                    newPost.child("description").setValue(txtDesc);
-                    newPost.child("username").setValue(txtUsername);
-                    //newPost.child(key).child("imageUrl").setValue(downloadUrl.toString());
-
-
-
-                    startActivity(new Intent(NewPostActivity.this, SeePostActivity.class));
-                    NewPostActivity.this.finish();
-
-                    /*MainPostFragment nextFrag = new MainPostFragment();
-                    NewPostActivity.this.getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.newpostfragmentlayout, nextFrag, "findThisFragment")
-                            .addToBackStack(null)
-                            .commit();*/
-
-                }
-
-
 
         });
-
-       /* HashMap<String, Object> map = new HashMap<>();
-        map.put("Name", "Zsofi");
-        map.put("Email", "zsofi@gmail.com");
-
-        FirebaseDatabase.getInstance().getReference().child("ViziNewPost").child("MultipleValues").updateChildren(map);*/
 
 
     }
