@@ -18,11 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <!-- <ImageView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:id="@+id/post_image"
-            android:scaleType="centerCrop"/>-->
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
         <TextView
@@ -34,17 +36,8 @@
             android:textStyle="bold"
             android:text="Post Title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_image"
             />
-
-        <!--<Button
-            android:id="@+id/post_delete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="308dp"
-            android:text="Törlés"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/post_desc_txtview"
@@ -66,19 +59,22 @@
             android:gravity="end"
             android:textStyle="bold"
             android:textColor="#2196F3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/post_desc_txtview"/>
 
         <Button
             android:id="@+id/post_delete_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginTop="20dp"
+            android:background="#D3EA0404"
+            android:textColor="#fff"
+            android:textStyle="bold"
             android:text="Törlés"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_user"/>
+            app:layout_constraintTop_toBottomOf="@+id/post_user" />
 
 
 

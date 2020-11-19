@@ -2,6 +2,7 @@ package hu.bme.aut.vizivandor.ui.post;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.AttributeSet;
@@ -22,6 +23,8 @@ import androidx.appcompat.widget.ContentFrameLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +33,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +48,7 @@ public class SeePostActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     MyListAdapter adapter;
+
 
     private String post_key = null;
 
@@ -53,6 +62,8 @@ public class SeePostActivity extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         FirebaseRecyclerOptions<MyListData> myListData
                 = new FirebaseRecyclerOptions.Builder<MyListData>()
