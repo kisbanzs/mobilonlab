@@ -87,8 +87,6 @@ public class NewPostActivity extends AppCompatActivity {
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                     storage =  FirebaseStorage.getInstance().getReference("Images");
 
                     if(uploadImageTask != null && uploadImageTask.isInProgress()){
@@ -96,7 +94,6 @@ public class NewPostActivity extends AppCompatActivity {
                     } else {
                         Fileuploader();
                     }
-
 
                     startActivity(new Intent(NewPostActivity.this, SeePostActivity.class));
                     NewPostActivity.this.finish();
@@ -116,21 +113,15 @@ public class NewPostActivity extends AppCompatActivity {
     }
 
     private void Fileuploader(){
-
         final StorageReference ref = storage.child(System.currentTimeMillis() + "." + getExtension(uri));
-
         uploadImageTask = ref.putFile(uri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         Toast.makeText(NewPostActivity.this, "Image upploaded succesfully", Toast.LENGTH_SHORT).show();
-
                         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-
                                 final String txtTitle = text_title.getText().toString();
                                 final String txtDesc = text_description.getText().toString();
                                 final String txtUsername = mCurrentUser.getEmail();
@@ -141,17 +132,13 @@ public class NewPostActivity extends AppCompatActivity {
                                 newPost.child("description").setValue(txtDesc);
                                 newPost.child("username").setValue(txtUsername);
                                 newPost.child("imageUrl").setValue(String.valueOf(uri));
-
                             }
                         });
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
                     }
                 });
 

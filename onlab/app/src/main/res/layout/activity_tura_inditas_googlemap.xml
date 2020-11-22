@@ -10,6 +10,22 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_margin="6dp"
+            android:padding="6dp"
+            android:layout_height="50dp"
+            android:text="Túra indítása"
+            android:id="@+id/turainditasButton"/>
+        <Button
+            android:layout_width="300dp"
+            android:layout_margin="56dp"
+            android:padding="6dp"
+            android:layout_height="50dp"
+            android:text="Túra leállitása"
+            android:id="@+id/turaleallitasa"/>
+
     <fragment
         android:id="@+id/google_map_id"
         class="com.google.android.gms.maps.SupportMapFragment"

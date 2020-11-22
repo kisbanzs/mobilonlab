@@ -88,7 +88,7 @@ public class MyListAdapter extends FirebaseRecyclerAdapter<MyListData, MyListAda
 
     }
 
-  
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         //public ImageView imageView;

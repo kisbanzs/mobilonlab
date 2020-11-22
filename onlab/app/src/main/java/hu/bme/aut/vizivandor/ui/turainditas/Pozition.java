@@ -10,8 +10,6 @@ public class Pozition {
 
         //String szo = s;
         //if(){
-            System.out.println("BELEPTEM IDE");
-        System.out.println(s);
 
 
         ArrayList<LatLng> back = new ArrayList<LatLng>();
@@ -36,7 +34,7 @@ public class Pozition {
                 case "Vasarosnameny":
                     return new LatLng(48.127612,22.340048);
 
-                case "Tokaj":
+                case "Tura2":
                     return new LatLng(48.137781,21.400946);
                 case "Bodrogzug":
                     return new LatLng(48.167749,21.398657);
@@ -46,6 +44,17 @@ public class Pozition {
                     return new LatLng( 48.360649,21.693310);
                 case "Sarospatak":
                     return new LatLng( 48.315088,21.568245);
+
+                case "Tura3":
+                    return new LatLng( 47.789443,18.731162);
+                case "Tura4":
+                    return new LatLng( 47.940391,17.357821);
+                case "Tura5":
+                    return new LatLng( 46.592602,18.860733);
+                case "Tura6":
+                    return new LatLng( 46.759521,21.153568);
+                case "Tura7":
+                    return new LatLng( 47.645895,20.660313);
 
 
                 default:
