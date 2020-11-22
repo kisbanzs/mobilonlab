@@ -5,7 +5,7 @@ public class LocationHelper {
     private double Longitude;
     private double Latitude;
 
-    public LocationHelper(double longitude, double latitude) {
+    public LocationHelper(double latitude, double longitude) {
         Longitude = longitude;
         Latitude = latitude;
     }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     tools:context="hu.bme.aut.vizivandor.ui.turainditas.GoogleMapsActivity">
@@ -11,20 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <ToggleButton
+            android:id="@+id/turainditasButton"
             android:layout_width="300dp"
+            android:layout_height="50dp"
             android:layout_margin="6dp"
             android:padding="6dp"
-            android:layout_height="50dp"
-            android:text="Túra indítása"
-            android:id="@+id/turainditasButton"/>
-        <Button
-            android:layout_width="300dp"
-            android:layout_margin="56dp"
+            android:textOff="Túra indítása"
+            android:textOn="Túra leállítása" />
+
+
+
+        <TextView
+            android:layout_margin="100dp"
             android:padding="6dp"
-            android:layout_height="50dp"
-            android:text="Túra leállitása"
-            android:id="@+id/turaleallitasa"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gratulálok"
+            android:id="@+id/megtettut"
+            android:textSize="22dp"
+            android:textColor="@color/colorPrimary"/>
 
     <fragment
         android:id="@+id/google_map_id"

@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +48,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -65,12 +71,15 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     private MapView googlemapview;
     private Pozition poz;
     private LatLng latLng;
-    private Button turainditas;
-    private Button turaleaalitas;
+    private TextView megtett;
     private Location l;
     private LocationCallback mLocationCallback;
     private int i;
     private TimerTask timer;
+    final private ArrayList<LocationHelper> currentlocations = new ArrayList<>();
+    private DatabaseReference ref;
+
+
 
 
     private FusedLocationProviderClient fusedLocationClient;
@@ -87,68 +96,99 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
                 .findFragmentById(R.id.google_map_id);
         mapFragment.getMapAsync(this);
 
-
-        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("VizivandorTerkep");
+        ref = FirebaseDatabase.getInstance().getReference("VizivandorTerkep");
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-
-        turainditas = findViewById(R.id.turainditasButton);
-        turaleaalitas = findViewById(R.id.turaleallitasa);
+        megtett = findViewById(R.id.megtettut);
         i=1;
-        
-        turainditas.setOnClickListener(new View.OnClickListener() {
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.turainditasButton);
+
+
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    navigationOn();
+                } else {
+                    navigationOff();
+                }
+            }
+        });
+
+
+    }
+
+    private void navigationOn(){
+        Toast.makeText(GoogleMapsActivity.this, "Megnyomtam a gombot", Toast.LENGTH_SHORT).show();
+
+        ref.removeValue();
+        i = 1;
+
+
+        //visszaadja a jelenlegi helyzet koordinátáit
+        timer = new TimerTask() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(GoogleMapsActivity.this, "Megnyomtam a gombot", Toast.LENGTH_SHORT).show();
+            public void run() {
+                fusedLocationClient.getLastLocation()
+                        .addOnSuccessListener(GoogleMapsActivity.this, new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(final Location location) {
 
-                //visszaadja a jelenlegi helyzet koordinátáit
-                timer = new TimerTask() {
-                    @Override
-                    public void run() {
-                    fusedLocationClient.getLastLocation()
-                            .addOnSuccessListener(GoogleMapsActivity.this, new OnSuccessListener<Location>() {
-                                @Override
-                                public void onSuccess(final Location location) {
+                                if (location != null) {
 
-                                    if (location != null) {
+                                    final DatabaseReference newPost = ref.child(String.valueOf(i));
 
-                                                final DatabaseReference newPost = ref.child(String.valueOf(i));
+                                    //System.out.println("itt jon a location " + location.getLatitude() + ", " + location.getLongitude());
 
-                                                System.out.println("itt jon a location " + location.getLongitude() + ", " + location.getLatitude());
+                                    Double latitude = location.getLatitude();
+                                    Double longitude = location.getLongitude();
 
-                                                Double latitude = location.getLatitude();
-                                                Double longitude = location.getLongitude();
+                                    newPost.child("Latitude").setValue(latitude);
+                                    newPost.child("Longitude").setValue(longitude);
+                                    LocationHelper locationHelper = new LocationHelper(latitude, longitude);
+                                    currentlocations.add(locationHelper);
+                                    //cl.put(i, currentlocations);
+                                    i++;
 
-                                                newPost.child("Latitude").setValue(latitude);
-                                                newPost.child("Longitude").setValue(longitude);
-                                                i++;
-
-                                    } else {
-                                        System.out.println("Nem mukodik a helyzet felismero");
-                                    }
+                                } else {
+                                    System.out.println("Nem mukodik a helyzet felismero");
                                 }
-                            });
-                        }
-                    };
-
-                new Timer().scheduleAtFixedRate(timer, 0, 5000);
-
+                            }
+                        });
             }
-        });
+        };
 
-        turaleaalitas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //megallitom
-                timer.cancel();
-                //kitorlom az adatbazisbol
-                ref.removeValue();
+        new Timer().scheduleAtFixedRate(timer, 0, 1500);
+    }
 
+    private void navigationOff(){
+        if(currentlocations!=null) {
+            //System.out.println("Ez az " + currentlocations.get(1).getLatitude() + "helyzet. ");
+
+            double vegeredmeny = 0;
+
+            if(currentlocations.size() >= 2) {
+                for (int i = 0; i < currentlocations.size() - 1; i++) {
+
+                    vegeredmeny += utvonalszamitas(currentlocations.get(i).getLatitude(), currentlocations.get(i + 1).getLatitude(),
+                            currentlocations.get(i).getLongitude(), currentlocations.get(i + 1).getLongitude());
+
+                }
             }
-        });
+            megtett.setText(String.valueOf(vegeredmeny) + " m");
+
+            System.out.println(" ez itt a vegeredmeny " + vegeredmeny);
+        }
 
 
+        //megallitom
+        timer.cancel();
+    }
+
+    private double utvonalszamitas(double x1, double y1, double x2, double y2){
+        return Math.sqrt( ( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) ) );
     }
 
     @Override
