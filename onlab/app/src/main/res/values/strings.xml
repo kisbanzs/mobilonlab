@@ -16,9 +16,9 @@
 
     <string name="menu_home">Főoldal</string>
     <string name="menu_tura">Túra útvonalak</string>
-    <string name="menu_slideshow">Térkép</string>
+    <string name="menu_slideshow">Toplista</string>
     <string name="menu_tools">Útravaló</string>
-    <string name="menu_share">Indulás!</string>
+    <string name="menu_share">Térkép</string>
     <string name="menu_send">Jelentkezés</string>
     <string name="menu_post">Üzenő Fal</string>
     <string name="menu_login">Bejelentkezés</string>

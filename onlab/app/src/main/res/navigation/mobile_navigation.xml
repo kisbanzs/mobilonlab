@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="hu.bme.aut.vizivandor.ui.terkep.MapFragment"
+        android:name="hu.bme.aut.vizivandor.ui.toplista.ToplistaFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_terkep_osmdroid" />
 

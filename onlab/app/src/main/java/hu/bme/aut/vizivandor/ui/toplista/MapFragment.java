@@ -1,4 +1,4 @@
-package hu.bme.aut.vizivandor.ui.terkep;
+/*package hu.bme.aut.vizivandor.ui.toplista;
 
 import android.Manifest;
 import android.content.Context;
@@ -427,7 +427,7 @@ public class MapFragment extends Fragment implements LocationListener {
         }
     }*/
 
-    @Override
+/*    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
@@ -487,3 +487,4 @@ public class MapFragment extends Fragment implements LocationListener {
 
     }
 }
+*/

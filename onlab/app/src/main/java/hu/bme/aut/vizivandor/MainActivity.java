@@ -2,12 +2,6 @@ package hu.bme.aut.vizivandor;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.MenuItem;
-import android.view.View;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,12 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-
-import org.osmdroid.util.GeoPoint;
-
-import java.util.ArrayList;
-
-import hu.bme.aut.vizivandor.ui.terkep.MapFragment;
 
 public class MainActivity extends AppCompatActivity {
 

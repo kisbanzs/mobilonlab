@@ -1,6 +1,5 @@
 package hu.bme.aut.vizivandor.ui.post;
 
-import android.widget.Button;
 
 public class MyListData{
     private String title;

@@ -44,6 +44,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseError;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -77,7 +79,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     private int i;
     private TimerTask timer;
     final private ArrayList<LocationHelper> currentlocations = new ArrayList<>();
+
     private DatabaseReference ref;
+    private FirebaseUser mCurrentUser;
 
 
 
@@ -100,7 +104,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        megtett = findViewById(R.id.megtettut);
+        //megtett = findViewById(R.id.megtettut);
         i=1;
 
         ToggleButton toggle = (ToggleButton) findViewById(R.id.turainditasButton);
@@ -126,6 +130,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         ref.removeValue();
         i = 1;
 
+        currentlocations.clear();
 
         //visszaadja a jelenlegi helyzet koordinátáit
         timer = new TimerTask() {
@@ -160,7 +165,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
             }
         };
 
-        new Timer().scheduleAtFixedRate(timer, 0, 1500);
+        new Timer().scheduleAtFixedRate(timer, 0, 1000);
     }
 
     private void navigationOff(){
@@ -177,9 +182,20 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
                 }
             }
-            megtett.setText(String.valueOf(vegeredmeny) + " m");
+            String v = String.format("%.2f", (vegeredmeny*100*1000));
+            String vege = "Gratulálok, " + v + " métert tett meg a túrán!";
 
-            System.out.println(" ez itt a vegeredmeny " + vegeredmeny);
+            Toast.makeText(this, vege, Toast.LENGTH_SHORT).show();
+            //megtett.setText(vegeredmeny * 100 * 1000 + " m");
+
+            System.out.println(vege);
+
+            mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+            DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("VizivandorToplista").push();
+
+            ref2.child("username").setValue(mCurrentUser.getEmail());
+            ref2.child("distance").setValue(v + " m");
+
         }
 
 
@@ -187,7 +203,11 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         timer.cancel();
     }
 
-    private double utvonalszamitas(double x1, double y1, double x2, double y2){
+    private double utvonalszamitas(double x1, double x2, double y1, double y2){
+        System.out.println("x1: " + x1);
+        System.out.println("x2: " + x2);
+        System.out.println("y1: " + y1);
+        System.out.println("y2: " + y2);
         return Math.sqrt( ( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) ) );
     }
 

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="hu.bme.aut.vizivandor.ui.terkep.MapFragment">
+    tools:context="hu.bme.aut.vizivandor.ui.toplista.MapFragment">
 
     <org.osmdroid.views.MapView
         android:id="@+id/map_id"
